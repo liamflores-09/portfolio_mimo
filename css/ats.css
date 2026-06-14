@@ -6,6 +6,47 @@
 .section-header { margin-bottom: 3rem; }
 .section-divider { margin-bottom: 3rem; }
 
+/* ─── LOADING SCREEN ─── */
+.ats-loader {
+    position: fixed; inset: 0; z-index: 99999;
+    background: #0f0f0f;
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+.ats-loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.ats-loader-inner { text-align: center; }
+
+.ats-loader-logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5rem; font-weight: 800; color: #fff;
+    letter-spacing: 4px; margin-bottom: 1.5rem;
+    animation: loaderPulse 1.2s ease-in-out infinite;
+}
+
+.ats-loader-bar {
+    width: 180px; height: 2px; background: rgba(255,255,255,0.1);
+    margin: 0 auto 1rem; overflow: hidden; border-radius: 1px;
+}
+.ats-loader-fill {
+    width: 40%; height: 100%; background: #3b82f6;
+    animation: loaderSlide 1.2s ease-in-out infinite;
+}
+
+.ats-loader-text {
+    font-size: 0.65rem; font-weight: 500; letter-spacing: 2px;
+    text-transform: uppercase; color: rgba(255,255,255,0.3);
+}
+
+@keyframes loaderPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+@keyframes loaderSlide {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(350%); }
+}
+
 /* ─── BACK LINK ─── */
 .ats-back-link {
     position: fixed; top: 2rem; left: 2rem;

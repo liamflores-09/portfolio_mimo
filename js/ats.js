@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Hide loader once page is ready
+    const atsLoader = document.getElementById('atsLoader');
+    if (atsLoader) {
+        window.addEventListener('load', () => {
+            setTimeout(() => atsLoader.classList.add('hidden'), 600);
+        });
+        // Fallback: hide after 3s even if images fail
+        setTimeout(() => atsLoader.classList.add('hidden'), 3000);
+    }
+
     // Theme toggle
     const themeToggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme') || 'dark';
