@@ -607,6 +607,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Cursor tooltip on project cards
+    const cursorTooltip = document.getElementById('cursorTooltip');
+    if (cursorTooltip) {
+        let tooltipVisible = false;
+
+        document.addEventListener('mousemove', (e) => {
+            if (tooltipVisible) {
+                cursorTooltip.style.left = e.clientX + 'px';
+                cursorTooltip.style.top = e.clientY + 'px';
+            }
+        });
+
+        document.querySelectorAll('.project-thumb-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                cursorTooltip.textContent = 'Click to view';
+                cursorTooltip.classList.add('active');
+                tooltipVisible = true;
+                document.body.style.cursor = 'none';
+            });
+            card.addEventListener('mouseleave', () => {
+                cursorTooltip.classList.remove('active');
+                tooltipVisible = false;
+                document.body.style.cursor = '';
+            });
+        });
+    }
+
     // Share widget
     const shareToggle = document.getElementById('shareToggle');
     const shareOptions = document.querySelector('.share-options');
