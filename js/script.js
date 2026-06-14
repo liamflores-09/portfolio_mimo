@@ -15,6 +15,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Local time
+    const localTime = document.getElementById('localTime');
+    if (localTime) {
+        function updateTime() {
+            const now = new Date();
+            localTime.textContent = now.toLocaleTimeString('en-US', {
+                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true
+            });
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+    }
+
     // Theme toggle
     const themeToggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme') || 'dark';
