@@ -1023,27 +1023,24 @@ a, button, .project-card, .hobby-item, .skill-category, .experience-item, .edu-i
 }
 
 @media (max-width: 768px) {
+    .modal { width: 95%; max-height: 90vh; }
     .modal-body {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        padding: 1.5rem;
+        gap: 1.5rem;
+        overflow-y: auto;
     }
-
-    .modal-socials-col {
-        flex-direction: row;
-    }
-
-    .modal-name-row {
-        justify-content: center;
-    }
-
-    .modal-details {
-        align-items: center;
-    }
-
-    .modal-skills {
-        justify-content: center;
-    }
+    .modal-left { flex-direction: row; gap: 1rem; }
+    .modal-avatar { width: 60px; height: 60px; }
+    .modal-socials-col { flex-direction: row; }
+    .modal-right { width: 100%; }
+    .modal-name-row { justify-content: center; flex-wrap: wrap; }
+    .modal-name-row h3 { font-size: 1.1rem; }
+    .modal-details { align-items: center; }
+    .modal-skills { justify-content: center; }
+    .modal-bio { font-size: 0.8rem; }
 }
 
 .stats-section {
