@@ -809,21 +809,246 @@ a, button, .project-card, .hobby-item, .skill-category, .experience-item, .edu-i
     transform: scale(1.15);
 }
 
+/* About Modal — Glass Card */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(8px);
-    z-index: 10000;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 99998;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-glass {
+    width: 90%;
+    max-width: 420px;
+    background: rgba(26, 26, 26, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    transform: scale(0.95) translateY(10px);
+    transition: transform 0.3s ease;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.modal-overlay.active .modal-glass {
+    transform: scale(1) translateY(0);
+}
+
+[data-theme="light"] .modal-glass {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.modal-glass::-webkit-scrollbar { width: 4px; }
+.modal-glass::-webkit-scrollbar-track { background: transparent; }
+.modal-glass::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+.modal-close:hover { border-color: var(--text); color: var(--text); }
+
+.modal-glass-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+}
+
+.modal-glass-header .modal-avatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+[data-theme="light"] .modal-glass-header .modal-avatar {
+    background: linear-gradient(135deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01));
+    border-color: rgba(0,0,0,0.08);
+}
+
+.modal-glass-header .modal-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.modal-glass-header h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.modal-glass-header .modal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 20px;
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.modal-glass-header .modal-role {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.modal-glass-header .modal-socials-row {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.3rem;
+}
+
+.modal-glass-header .modal-socials-row a {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.7rem;
+    transition: all 0.2s;
+}
+
+[data-theme="light"] .modal-glass-header .modal-socials-row a {
+    border-color: rgba(0,0,0,0.1);
+}
+
+.modal-glass-header .modal-socials-row a:hover {
+    border-color: var(--text);
+    color: var(--text);
+}
+
+.modal-glass-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+[data-theme="light"] .modal-glass-grid {
+    background: rgba(0,0,0,0.05);
+}
+
+.modal-glass-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem;
+    background: rgba(26, 26, 26, 0.6);
+}
+
+[data-theme="light"] .modal-glass-cell {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.modal-glass-cell i {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    width: 14px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.modal-glass-cell span {
+    display: block;
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.1rem;
+}
+
+.modal-glass-cell strong {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.modal-glass .modal-bio {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.modal-glass .modal-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    justify-content: center;
+}
+
+.modal-glass .modal-skills span {
+    font-size: 0.6rem;
+    font-weight: 500;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+
+[data-theme="light"] .modal-glass .modal-skills span {
+    border-color: rgba(0,0,0,0.08);
+}
+
+.modal-glass .modal-skills span:hover {
+    border-color: var(--text);
+    color: var(--text);
 }
 
 .modal-overlay.active {
@@ -1138,14 +1363,12 @@ a, button, .project-card, .hobby-item, .skill-category, .experience-item, .edu-i
 }
 
 @media (max-width: 768px) {
-    .modal { width: 95%; max-height: 90vh; }
-    .modal-body { padding: 1.5rem; gap: 1rem; overflow-y: auto; }
-    .modal-header { gap: 0.4rem; }
-    .modal-avatar { width: 60px; height: 60px; }
-    .modal-header h3 { font-size: 1.05rem; }
-    .modal-details { align-items: center; }
-    .modal-skills { justify-content: center; }
-    .modal-bio { font-size: 0.8rem; text-align: center; }
+    .modal-glass { width: 92%; padding: 1.5rem; max-height: 88vh; }
+    .modal-glass-header .modal-avatar { width: 58px; height: 58px; }
+    .modal-glass-header h3 { font-size: 1rem; }
+    .modal-glass-grid { grid-template-columns: 1fr; }
+    .modal-glass .modal-skills { justify-content: center; }
+    .modal-glass .modal-bio { text-align: center; }
 }
 
 .stats-section {
