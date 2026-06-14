@@ -630,6 +630,96 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Feedback modal
+    const feedbackBtn = document.createElement('button');
+    feedbackBtn.className = 'feedback-toggle';
+    feedbackBtn.id = 'feedbackBtn';
+    feedbackBtn.title = 'Send Feedback';
+    feedbackBtn.innerHTML = '<i class="fa-solid fa-comment-dots"></i>';
+    document.body.appendChild(feedbackBtn);
+
+    const feedbackModal = document.getElementById('feedbackModal');
+    const feedbackClose = document.getElementById('feedbackClose');
+    const feedbackBackdrop = document.getElementById('feedbackBackdrop');
+    const starRating = document.getElementById('starRating');
+    const ratingInput = document.getElementById('ratingInput');
+    const feedbackForm = document.querySelector('.feedback-form');
+    const feedbackSuccess = document.getElementById('feedbackSuccess');
+
+    if (feedbackBtn && feedbackModal) {
+        feedbackBtn.addEventListener('click', () => {
+            feedbackModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        feedbackClose.addEventListener('click', () => {
+            feedbackModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        feedbackBackdrop.addEventListener('click', () => {
+            feedbackModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+
+    // Star rating
+    if (starRating) {
+        const stars = starRating.querySelectorAll('i');
+        stars.forEach(star => {
+            star.addEventListener('mouseenter', () => {
+                const rating = parseInt(star.dataset.rating);
+                stars.forEach((s, i) => {
+                    s.classList.toggle('active', i < rating);
+                });
+            });
+            star.addEventListener('click', () => {
+                ratingInput.value = star.dataset.rating;
+            });
+        });
+        starRating.addEventListener('mouseleave', () => {
+            const rating = parseInt(ratingInput.value) || 0;
+            stars.forEach((s, i) => {
+                s.classList.toggle('active', i < rating);
+            });
+        });
+    }
+
+    // Feedback form submission
+    if (feedbackForm) {
+        feedbackForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            btn.disabled = true;
+
+            const formData = new FormData(this);
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            }).then(() => {
+                feedbackSuccess.classList.add('active');
+                feedbackForm.reset();
+                const stars = starRating.querySelectorAll('i');
+                stars.forEach(s => s.classList.remove('active'));
+                ratingInput.value = '';
+                setTimeout(() => {
+                    feedbackModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    feedbackSuccess.classList.remove('active');
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 2500);
+            }).catch(() => {
+                btn.innerHTML = '<i class="fa-solid fa-xmark"></i> Error';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 3000);
+            });
+        });
+    }
+
     // Cursor tooltip on project cards
     const cursorTooltip = document.getElementById('cursorTooltip');
     if (cursorTooltip) {

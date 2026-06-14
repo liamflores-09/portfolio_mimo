@@ -573,8 +573,9 @@
                 </div>
                 <button type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
                 <div class="form-success" id="formSuccess">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <p>Message sent successfully! I'll get back to you soon.</p>
+                    <div class="form-success-icon"><i class="fa-solid fa-check"></i></div>
+                    <h4>Message Sent!</h4>
+                    <p>Thanks for reaching out. I'll get back to you soon.</p>
                 </div>
             </form>
         </div>
@@ -667,6 +668,57 @@
             <div class="resume-modal-body">
                 <iframe src="FloresCV.pdf" id="resumeFrame"></iframe>
             </div>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="feedback-modal" id="feedbackModal">
+        <div class="feedback-backdrop" id="feedbackBackdrop"></div>
+        <div class="feedback-panel">
+            <div class="feedback-header">
+                <h4><i class="fa-solid fa-comment-dots"></i> Feedback</h4>
+                <button class="feedback-close" id="feedbackClose"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form class="feedback-form" name="feedback" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="feedback">
+                <p style="display:none">
+                    <label>Don't fill this out: <input name="bot-field"></label>
+                </p>
+                <div class="feedback-row">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Name (optional)">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email (optional)">
+                    </div>
+                </div>
+                <div class="feedback-rating">
+                    <label>How would you rate this portfolio?</label>
+                    <div class="star-rating" id="starRating">
+                        <i class="fa-solid fa-star" data-rating="1"></i>
+                        <i class="fa-solid fa-star" data-rating="2"></i>
+                        <i class="fa-solid fa-star" data-rating="3"></i>
+                        <i class="fa-solid fa-star" data-rating="4"></i>
+                        <i class="fa-solid fa-star" data-rating="5"></i>
+                    </div>
+                    <input type="hidden" name="rating" id="ratingInput" value="">
+                </div>
+                <div class="form-group">
+                    <textarea name="liked" placeholder="What did you like?" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea name="improve" placeholder="What could be improved?" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Any other thoughts?" rows="2"></textarea>
+                </div>
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i> Submit Feedback</button>
+                <div class="feedback-success" id="feedbackSuccess">
+                    <div class="form-success-icon"><i class="fa-solid fa-check"></i></div>
+                    <h4>Thanks for your feedback!</h4>
+                    <p>Your input helps me improve.</p>
+                </div>
+            </form>
         </div>
     </div>
 
