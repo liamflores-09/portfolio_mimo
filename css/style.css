@@ -900,6 +900,13 @@ a, button, .project-card, .hobby-item, .skill-category, .experience-item, .edu-i
     letter-spacing: 1px;
 }
 
+.modal-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 .modal-socials-col {
     display: flex;
     flex-direction: column;
