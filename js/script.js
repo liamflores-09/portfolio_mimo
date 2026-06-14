@@ -405,22 +405,45 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Form submission
+    // Form submission — Netlify Forms
     const form = document.querySelector('.contact-form');
+    const formSuccess = document.getElementById('formSuccess');
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         const btn = this.querySelector('button');
         const originalText = btn.innerHTML;
-        btn.innerHTML = '<i class="fa-solid fa-check"></i> Sent ✓';
-        btn.style.background = '#333';
-        btn.style.color = '#fff';
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+        btn.disabled = true;
 
-        setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.style.background = '';
-            btn.style.color = '';
-            this.reset();
-        }, 2500);
+        const formData = new FormData(this);
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        }).then(() => {
+            btn.innerHTML = '<i class="fa-solid fa-check"></i> Sent!';
+            btn.style.background = '#333';
+            btn.style.color = '#fff';
+            formSuccess.classList.add('active');
+            form.reset();
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+                btn.style.color = '';
+                btn.disabled = false;
+                formSuccess.classList.remove('active');
+            }, 3000);
+        }).catch(() => {
+            btn.innerHTML = '<i class="fa-solid fa-xmark"></i> Error';
+            btn.style.background = '#dc2626';
+            btn.style.color = '#fff';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+                btn.style.color = '';
+                btn.disabled = false;
+            }, 3000);
+        });
     });
 
     // Stagger animations - removed, handled by staggerObserver

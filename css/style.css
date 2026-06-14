@@ -3611,6 +3611,23 @@ section.visible .contact-content {
     height: 300px;
 }
 
+.form-success {
+    display: none;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 0.5rem;
+}
+.form-success.active { display: block; }
+.form-success i {
+    font-size: 2rem;
+    color: #4ade80;
+    margin-bottom: 0.5rem;
+}
+.form-success p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
 .back-to-top {
     position: fixed;
     bottom: 2rem;
