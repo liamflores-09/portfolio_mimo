@@ -683,9 +683,20 @@ a, button, .project-card, .hobby-item, .skill-category, .experience-item, .edu-i
     transform: translateY(3px);
 }
 
-.hero-content .cta-button + .resume-btn {
-    margin-left: 1rem;
+.hero-buttons {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
 }
+
+.about-btn {
+    width: 44px; height: 44px;
+    border: 1px solid var(--border); background: transparent;
+    color: var(--text-muted); font-size: 1rem; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+}
+.about-btn:hover { border-color: var(--text); color: var(--text); }
 
 .hero-name {
     font-size: 4rem;
@@ -3449,9 +3460,8 @@ section.visible .contact-content {
         display: none;
     }
 
-    .hero-content .cta-button + .resume-btn {
-        margin-left: 0;
-        margin-top: 1rem;
+    .hero-buttons {
+        flex-wrap: wrap;
     }
 
     .projects-grid {
