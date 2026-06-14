@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liam Flores | IT Specialist & Systems Engineer</title>
+    <meta name="description" content="Portfolio of Liam Jed M. Flores - IT Specialist & Systems Engineer specializing in Laravel, PHP, JavaScript, and web development.">
+    <meta name="keywords" content="Liam Flores, IT Specialist, Web Developer, Laravel, PHP, JavaScript, Portfolio">
+    <meta name="author" content="Liam Jed M. Flores">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Liam Flores | IT Specialist & Systems Engineer">
+    <meta property="og:description" content="Magna Cum Laude graduate specializing in Laravel, PHP, JavaScript, and web development.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://liamflores.dev">
+    <meta property="og:image" content="https://placehold.co/1200x630/0f0f0f/ffffff?text=LF+Portfolio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Liam Flores | IT Specialist & Systems Engineer">
+    <meta name="twitter:description" content="Magna Cum Laude graduate specializing in Laravel, PHP, JavaScript, and web development.">
+    <meta name="twitter:image" content="https://placehold.co/1200x630/0f0f0f/ffffff?text=LF+Portfolio">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230f0f0f'/><text x='50' y='68' font-family='Inter,sans-serif' font-size='42' font-weight='800' fill='white' text-anchor='middle'>LF</text></svg>">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#experience"><i class="fa-solid fa-briefcase"></i> Experience</a></li>
+            <li><a href="#testimonials"><i class="fa-solid fa-quote-left"></i> Testimonials</a></li>
+            <li><a href="#techstack"><i class="fa-solid fa-code"></i> Tech Stack</a></li>
+            <li><a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a></li>
+            <li><a href="#projects"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+            <li><a href="#hobbies"><i class="fa-solid fa-heart"></i> Hobbies</a></li>
+            <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <div class="toggle-track">
+                    <div class="toggle-stars">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="toggle-knob">
+                        <i class="fa-solid fa-sun"></i>
+                        <i class="fa-solid fa-moon"></i>
+                    </div>
+                </div>
+            </button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="#experience"><i class="fa-solid fa-briefcase"></i> Experience</a></li>
+            <li><a href="#testimonials"><i class="fa-solid fa-quote-left"></i> Testimonials</a></li>
+            <li><a href="#techstack"><i class="fa-solid fa-code"></i> Tech Stack</a></li>
+            <li><a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a></li>
+            <li><a href="#projects"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+            <li><a href="#hobbies"><i class="fa-solid fa-heart"></i> Hobbies</a></li>
+            <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        </ul>
+    </div>
+
+    <section class="hero" id="hero">
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <p class="hero-label"><i class="fa-solid fa-terminal"></i> Information Technology</p>
+            <h1 class="hero-name">
+                <span class="name-main">Liam Flores</span>
+                <span class="name-role">I'm a <span class="role-accent" id="typingRole">IT Specialist</span><span class="cursor-blink">|</span></span>
+            </h1>
+            <p class="hero-subtitle">Building clean, responsive websites and applications. I turn ideas into working products.</p>
+            <a href="#experience" class="cta-button">View Experience <span class="arrow">→</span></a>
+            <a href="#" class="resume-btn" id="resumeBtn"><i class="fa-solid fa-eye"></i> View Resume</a>
+        </div>
+        <div class="hero-visual" id="heroVisual">
+            <div class="glass-card glass-1" data-speed="2">
+                <div class="glass-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="glass-info">
+                    <span class="glass-label">Location</span>
+                    <span class="glass-value">Pateros, Metro Manila</span>
+                </div>
+            </div>
+            <div class="glass-card glass-2" data-speed="4">
+                <div class="glass-icon"><i class="fa-solid fa-briefcase"></i></div>
+                <div class="glass-info">
+                    <span class="glass-label">Currently</span>
+                    <span class="glass-value">JG Superstore</span>
+                </div>
+            </div>
+            <div class="glass-card glass-3" data-speed="3">
+                <div class="glass-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="glass-info">
+                    <span class="glass-label">Education</span>
+                    <span class="glass-value">TIP Manila - BSIT</span>
+                </div>
+            </div>
+            <div class="glass-card glass-4" data-speed="5">
+                <div class="glass-icon"><i class="fa-solid fa-code"></i></div>
+                <div class="glass-info">
+                    <span class="glass-label">Stack</span>
+                    <span class="glass-value">Laravel · PHP · JS</span>
+                </div>
+            </div>
+            <div class="glass-card glass-5" data-speed="2.5">
+                <div class="glass-icon"><i class="fa-solid fa-language"></i></div>
+                <div class="glass-info">
+                    <span class="glass-label">Languages</span>
+                    <span class="glass-value">English · Filipino</span>
+                </div>
+            </div>
+            <div class="glass-card glass-6" data-speed="3.5">
+                <div class="glass-icon"><i class="fa-solid fa-star"></i></div>
+                <div class="glass-info">
+                    <span class="glass-label">Honor</span>
+                    <span class="glass-value">Magna Cum Laude</span>
+                </div>
+            </div>
+            <div class="glass-glow"></div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+        <div class="local-time" id="localTime"></div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-value"><span class="stat-number" data-target="1">0</span><span class="stat-plus">+</span></div>
+                <span class="stat-label">Months Experience</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-value"><span class="stat-number" data-target="3">0</span><span class="stat-plus">+</span></div>
+                <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-value"><span class="stat-number" data-target="9">0</span><span class="stat-plus">+</span></div>
+                <span class="stat-label">Technologies</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-value"><span class="stat-number" data-target="1">0</span><span class="stat-plus"></span></div>
+                <span class="stat-label">Internship Completed</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience" id="experience">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2><i class="fa-solid fa-briefcase"></i> Experience</h2>
+        </div>
+        <div class="experience-list">
+            <div class="timeline-line"></div>
+            <div class="experience-item current">
+                <div class="exp-left">
+                    <span class="exp-date current-badge"><i class="fa-solid fa-circle-dot"></i> Present</span>
+                </div>
+                <div class="exp-dot"></div>
+                <div class="exp-right">
+                    <h3>E-commerce Content Associate</h3>
+                    <p class="exp-company"><i class="fa-solid fa-building"></i> JG Superstore</p>
+                    <span class="current-label">CURRENT</span>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="exp-left">
+                    <span class="exp-date">2025</span>
+                </div>
+                <div class="exp-dot"></div>
+                <div class="exp-right">
+                    <h3>Web Developer</h3>
+                    <p class="exp-company"><i class="fa-solid fa-building"></i> Highly Succeed Inc</p>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="exp-left">
+                    <span class="exp-date">2025</span>
+                </div>
+                <div class="exp-dot"></div>
+                <div class="exp-right">
+                    <h3>Graphics Designer</h3>
+                    <p class="exp-company"><i class="fa-solid fa-building"></i> Highly Succeed Inc / Unleash PH</p>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="exp-left">
+                    <span class="exp-date">2019</span>
+                </div>
+                <div class="exp-dot"></div>
+                <div class="exp-right">
+                    <h3>Freelance Graphic Designer</h3>
+                    <p class="exp-company"><i class="fa-solid fa-user"></i> Self-employed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2><i class="fa-solid fa-quote-left"></i> Testimonials</h2>
+        </div>
+        <div class="testimonials-track">
+            <div class="testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>Liam is an exceptional developer and a good team leader.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>Jen Aranas</h4>
+                        <span>Capstone Adviser, TIP Manila</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>Working with Liam was a pleasure. His attention to detail and creative problem-solving skills are top-notch.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>Vmiguel Gonzales <i class="fa-solid fa-circle-check verified-badge"></i></h4>
+                        <span>Internet Personality</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>Helped improve our system a lot. Smooth and reliable work.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>Client</h4>
+                        <span>JG Superstore</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>Liam is an exceptional developer and a good team leader.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>Jen Aranas</h4>
+                        <span>Capstone Adviser, TIP Manila</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>Working with Liam was a pleasure. His attention to detail and creative problem-solving skills are top-notch.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>Vmiguel Gonzales <i class="fa-solid fa-circle-check verified-badge"></i></h4>
+                        <span>Internet Personality</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>Helped improve our system a lot. Smooth and reliable work.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>Client</h4>
+                        <span>JG Superstore</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="techstack" id="techstack">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">03</span>
+            <h2><i class="fa-solid fa-laptop-code"></i> Tech Stack</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4><i class="fa-solid fa-palette"></i> Frontend</h4>
+                <ul>
+                    <li>
+                        <div class="skill-info"><i class="fa-brands fa-html5"></i> <span>HTML</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                    </li>
+                    <li>
+                        <div class="skill-info"><i class="fa-brands fa-css3-alt"></i> <span>CSS</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+                    </li>
+                    <li>
+                        <div class="skill-info"><i class="fa-brands fa-js"></i> <span>JavaScript</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+                    </li>
+                    <li>
+                        <div class="skill-info"><i class="fa-brands fa-bootstrap"></i> <span>Bootstrap</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4><i class="fa-solid fa-server"></i> Backend</h4>
+                <ul>
+                    <li>
+                        <div class="skill-info"><i class="fa-brands fa-php"></i> <span>PHP</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+                    </li>
+                    <li>
+                        <div class="skill-info"><i class="fa-solid fa-fire"></i> <span>Laravel</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+                    </li>
+                    <li>
+                        <div class="skill-info"><i class="fa-solid fa-database"></i> <span>MySQL</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+                    </li>
+                    <li>
+                        <div class="skill-info"><i class="fa-brands fa-node-js"></i> <span>Node.js</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="50"></div></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4><i class="fa-solid fa-wrench"></i> Tools</h4>
+                <ul>
+                    <li>
+                        <div class="skill-info"><i class="fa-brands fa-git-alt"></i> <span>Git</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="60"></div></div>
+                    </li>
+                    <li>
+                        <div class="skill-info"><i class="fa-brands fa-github"></i> <span>GitHub</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="60"></div></div>
+                    </li>
+                    <li>
+                        <div class="skill-info"><i class="fa-solid fa-code"></i> <span>VS Code</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="education" id="education">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">04</span>
+            <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+        </div>
+        <div class="education-content">
+            <div class="edu-item">
+                <span class="edu-year">2021 - 2025</span>
+                <h3><i class="fa-solid fa-user-graduate"></i> BS in Information Technology</h3>
+                <p class="edu-school"><i class="fa-solid fa-school"></i> Technological Institute of the Philippines - Manila</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">05</span>
+            <h2><i class="fa-solid fa-diagram-project"></i> Projects</h2>
+        </div>
+        <div class="projects-grid">
+            <div class="project-thumb-card">
+                <div class="project-thumb-img">
+                    <img src="images/portfoliobg.png" alt="Portfolio Website">
+                    <div class="project-thumb-overlay">
+                        <span class="project-thumb-category">Personal Portfolio</span>
+                        <h3>Portfolio Website</h3>
+                        <p>Personal portfolio built using Laravel + Bootstrap. Fully responsive with dark mode, interactive elements, and smooth animations.</p>
+                        <div class="project-thumb-tech">
+                            <span>Laravel</span><span>Bootstrap</span><span>MySQL</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
+                        </div>
+                        <div class="project-thumb-actions">
+                            <a href="https://github.com/liamflores-09" target="_blank" class="project-link-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-thumb-card">
+                <div class="project-thumb-img">
+                    <img src="images/capstonebg.png" alt="Applicant Tracking System">
+                    <div class="project-thumb-overlay">
+                        <span class="project-thumb-category">Capstone Project</span>
+                        <h3>Applicant Tracking System</h3>
+                        <p>Built using Laravel to streamline the recruitment process featuring job posting, application management, and candidate tracking.</p>
+                        <div class="project-thumb-actions">
+                            <a href="pages/ats-project.html" class="project-link-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Details</a>
+                            <a href="https://github.com/liamflores-09" target="_blank" class="project-link-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-thumb-card">
+                <div class="project-thumb-img">
+                    <img src="images/yeyeniya.png" alt="Yeyeniya's Pilot Service">
+                    <div class="project-thumb-overlay">
+                        <span class="project-thumb-category">Pilot Service</span>
+                        <h3>Yeyeniya's Pilot Service</h3>
+                        <p>Pilot Service for Yeyeniya, a Professional Player of Magic Chess: Go Go</p>
+                        <div class="project-thumb-tech">
+                            <span>Laravel</span><span>Bootstrap</span><span>MySQL</span><span>JavaScript</span>
+                        </div>
+                        <div class="project-thumb-notice">
+                            <i class="fa-solid fa-triangle-exclamation"></i> Hosted on Vercel Free Tier
+                        </div>
+                        <div class="project-thumb-actions">
+                            <a href="https://yeyeniya.vercel.app/" target="_blank" class="project-link-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+                            <a href="https://github.com/liamflores-09" target="_blank" class="project-link-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="creative" id="creative">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">07</span>
+            <h2><i class="fa-solid fa-palette"></i> Creative Work</h2>
+        </div>
+        <div class="creative-tabs">
+            <button class="creative-tab active" data-tab="digital-art">Digital Art</button>
+            <button class="creative-tab" data-tab="ojt">OJT Graphics</button>
+        </div>
+        <div class="creative-grid" id="creativeGrid">
+            <div class="creative-item" data-tab="digital-art"><img src="images/art/ivosfull.jpg" alt="Digital Art"><div class="creative-overlay"><span>Digital Art</span></div></div>
+            <div class="creative-item" data-tab="digital-art"><img src="images/art/ivos1.jpg" alt="Digital Art"><div class="creative-overlay"><span>Digital Art</span></div></div>
+            <div class="creative-item" data-tab="digital-art"><img src="images/art/ivos2.jpg" alt="Digital Art"><div class="creative-overlay"><span>Digital Art</span></div></div>
+            <div class="creative-item" data-tab="digital-art"><img src="images/art/ivos3.jpg" alt="Digital Art"><div class="creative-overlay"><span>Digital Art</span></div></div>
+            <div class="creative-item" data-tab="digital-art"><img src="images/art/loonie.jpg" alt="Digital Art"><div class="creative-overlay"><span>Digital Art</span></div></div>
+            <div class="creative-item" data-tab="digital-art"><img src="images/art/21savage.jpg" alt="Digital Art"><div class="creative-overlay"><span>Digital Art</span></div></div>
+            <div class="creative-item" data-tab="digital-art"><img src="images/art/drake.jpg" alt="Digital Art"><div class="creative-overlay"><span>Digital Art</span></div></div>
+            <div class="creative-item" data-tab="digital-art"><img src="images/art/eminem.jpg" alt="Digital Art"><div class="creative-overlay"><span>Digital Art</span></div></div>
+            <div class="creative-item" data-tab="digital-art"><img src="images/art/chrisbrown.jpg" alt="Digital Art"><div class="creative-overlay"><span>Digital Art</span></div></div>
+            <div class="creative-item" data-tab="digital-art"><img src="images/art/juice.jpg" alt="Digital Art"><div class="creative-overlay"><span>Digital Art</span></div></div>
+            <div class="creative-item" data-tab="digital-art"><img src="images/art/lilpump.jpg" alt="Digital Art"><div class="creative-overlay"><span>Digital Art</span></div></div>
+            <div class="creative-item" data-tab="digital-art"><img src="images/art/luhkel.jpg" alt="Digital Art"><div class="creative-overlay"><span>Digital Art</span></div></div>
+            <div class="creative-item" data-tab="digital-art"><img src="images/art/icecube.jpg" alt="Digital Art"><div class="creative-overlay"><span>Digital Art</span></div></div>
+            <div class="creative-item" data-tab="digital-art"><img src="images/art/xxx.jpg" alt="Digital Art"><div class="creative-overlay"><span>Digital Art</span></div></div>
+            <div class="creative-item hidden" data-tab="ojt"><img src="images/ojt/1.png" alt="OJT Graphics"><div class="creative-overlay"><span>OJT Graphics</span></div></div>
+            <div class="creative-item hidden" data-tab="ojt"><img src="images/ojt/2.png" alt="OJT Graphics"><div class="creative-overlay"><span>OJT Graphics</span></div></div>
+            <div class="creative-item hidden" data-tab="ojt"><img src="images/ojt/3.png" alt="OJT Graphics"><div class="creative-overlay"><span>OJT Graphics</span></div></div>
+            <div class="creative-item hidden" data-tab="ojt"><img src="images/ojt/4.png" alt="OJT Graphics"><div class="creative-overlay"><span>OJT Graphics</span></div></div>
+            <div class="creative-item hidden" data-tab="ojt"><img src="images/ojt/5.png" alt="OJT Graphics"><div class="creative-overlay"><span>OJT Graphics</span></div></div>
+            <div class="creative-item hidden" data-tab="ojt"><img src="images/ojt/6.png" alt="OJT Graphics"><div class="creative-overlay"><span>OJT Graphics</span></div></div>
+            <div class="creative-item hidden" data-tab="ojt"><img src="images/ojt/7.png" alt="OJT Graphics"><div class="creative-overlay"><span>OJT Graphics</span></div></div>
+            <div class="creative-item hidden" data-tab="ojt"><img src="images/ojt/8.png" alt="OJT Graphics"><div class="creative-overlay"><span>OJT Graphics</span></div></div>
+        </div>
+    </section>
+
+    <section class="hobbies" id="hobbies">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">06</span>
+            <h2><i class="fa-solid fa-star"></i> Hobbies</h2>
+        </div>
+        <div class="hobbies-grid">
+            <div class="hobby-item">
+                <span class="hobby-icon"><i class="fa-solid fa-pen-nib"></i></span>
+                <h4>Digital Art</h4>
+                <p>Vector/Vexel</p>
+            </div>
+            <div class="hobby-item">
+                <span class="hobby-icon"><i class="fa-solid fa-code"></i></span>
+                <h4>Coding</h4>
+                <p>Web Development</p>
+            </div>
+            <div class="hobby-item">
+                <span class="hobby-icon"><i class="fa-solid fa-gamepad"></i></span>
+                <h4>Gaming</h4>
+                <p>Mobile & PC Games</p>
+            </div>
+            <div class="hobby-item">
+                <span class="hobby-icon"><i class="fa-solid fa-tv"></i></span>
+                <h4>Anime</h4>
+                <p>Watching Series</p>
+            </div>
+            <div class="hobby-item">
+                <span class="hobby-icon"><i class="fa-solid fa-camera"></i></span>
+                <h4>Photography</h4>
+                <p>Capturing Moments</p>
+            </div>
+            <div class="hobby-item">
+                <span class="hobby-icon"><i class="fa-solid fa-book-open"></i></span>
+                <h4>Learning</h4>
+                <p>Continuous Growth</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">07</span>
+            <h2><i class="fa-solid fa-paper-plane"></i> Contact</h2>
+        </div>
+        <div class="contact-content">
+            <h3>Let's Connect</h3>
+            <p class="contact-text">Have a project in mind or need IT consulting? I'm always open to discussing new opportunities and challenges.</p>
+            <div class="social-links">
+                <a href="mailto:liamjedmflores@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+                <a href="https://github.com/liamflores-09" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://linkedin.com/in/liamjedmflores" target="_blank"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Tell me about your project" rows="4" required></textarea>
+                </div>
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <button class="back-to-top" id="backToTop">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <footer class="footer">
+        <div class="footer-text">© 2026 Liam Flores. All rights reserved.</div>
+        <div class="footer-links">
+            <a href="https://github.com/liamflores-09" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://linkedin.com/in/liamjedmflores" target="_blank"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+            <a href="mailto:liamjedmflores@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="aboutModal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body">
+                <div class="modal-left">
+                    <div class="modal-avatar">
+                        <span>LF</span>
+                    </div>
+                    <div class="modal-socials-col">
+                        <a href="mailto:liamjedmflores@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="https://github.com/liamflores-09" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://linkedin.com/in/liamjedmflores" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="modal-right">
+                    <div class="modal-name-row">
+                        <h3>Liam Jed M. Flores</h3>
+                        <span class="modal-badge working">Currently Working</span>
+                    </div>
+                    <p class="modal-role">Magna Cum Laude · BS Information Technology</p>
+                    <div class="modal-details">
+                        <div class="modal-detail">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Pateros, Metro Manila</span>
+                        </div>
+                        <div class="modal-detail">
+                            <i class="fa-solid fa-school"></i>
+                            <span>Technological Institute of the Philippines — Manila</span>
+                        </div>
+                        <div class="modal-detail">
+                            <i class="fa-solid fa-briefcase"></i>
+                            <span>E-commerce Content Associate at JG Superstore</span>
+                        </div>
+                        <div class="modal-detail">
+                            <i class="fa-solid fa-language"></i>
+                            <span>English, Filipino</span>
+                        </div>
+                    </div>
+                    <p class="modal-bio">A Magna Cum Laude graduate with a strong foundation in web development, systems analysis, and software design. Previously interned at Highly Succeed Inc. working on government systems and UI/UX tasks. Currently working as an E-commerce Content Associate at JG Superstore.</p>
+                    <div class="modal-skills">
+                        <span>Laravel</span><span>PHP</span><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Bootstrap</span><span>MySQL</span><span>PostgreSQL</span><span>Firebase</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="side-dots" id="sideDots">
+        <a href="#hero" class="side-dot active" data-section="hero"><span>Home</span></a>
+        <a href="#experience" class="side-dot" data-section="experience"><span>Experience</span></a>
+        <a href="#testimonials" class="side-dot" data-section="testimonials"><span>Testimonials</span></a>
+        <a href="#techstack" class="side-dot" data-section="techstack"><span>Tech Stack</span></a>
+        <a href="#education" class="side-dot" data-section="education"><span>Education</span></a>
+        <a href="#projects" class="side-dot" data-section="projects"><span>Projects</span></a>
+        <a href="#hobbies" class="side-dot" data-section="hobbies"><span>Hobbies</span></a>
+        <a href="#contact" class="side-dot" data-section="contact"><span>Contact</span></a>
+    </nav>
+
+    <!-- Resume Modal -->
+    <div class="resume-modal" id="resumeModal">
+        <div class="resume-modal-backdrop" id="resumeBackdrop"></div>
+        <div class="resume-modal-panel">
+            <div class="resume-modal-header">
+                <h4><i class="fa-solid fa-file-pdf"></i> Resume — Liam Jed M. Flores</h4>
+                <div class="resume-modal-actions">
+                    <button class="resume-modal-close" id="resumeClose"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+            <div class="resume-modal-body">
+                <iframe src="FloresCV.pdf" id="resumeFrame"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose"><i class="fa-solid fa-xmark"></i></button>
+        <button class="lightbox-prev" id="lightboxPrev"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="lightbox-next" id="lightboxNext"><i class="fa-solid fa-chevron-right"></i></button>
+        <img src="" alt="" id="lightboxImg">
+    </div>
+
+

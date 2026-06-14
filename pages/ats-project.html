@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicant Tracking System | Liam Flores</title>
+    <meta name="description" content="Portfolio showcase of the Applicant Tracking System capstone project built with Laravel, PostgreSQL, and Bootstrap 5.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/ats.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230f0f0f'/><text x='50' y='68' font-family='Inter,sans-serif' font-size='42' font-weight='800' fill='white' text-anchor='middle'>LF</text></svg>">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <a href="../index.html" class="ats-back-link"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+
+    <!-- HERO -->
+    <section class="ats-hero">
+        <div class="hero-grid"></div>
+        <div class="ats-hero-content">
+            <div class="ats-badge"><i class="fa-solid fa-circle-check"></i> Completed</div>
+            <h1 class="ats-brand">RecruitMint</h1>
+            <h1 class="ats-title">Applicant Tracking System</h1>
+            <p class="ats-subtitle">Capstone Project Portfolio Showcase</p>
+            <div class="ats-notice">
+                <i class="fa-solid fa-circle-info"></i>
+                <p>This project is currently not deployed online. This page serves as a portfolio showcase demonstrating the features, architecture, and development work behind the Applicant Tracking System capstone project.</p>
+            </div>
+            <div class="ats-cta">
+                <a href="#features" class="cta-button">View Features <span class="arrow">→</span></a>
+                <a href="#overview" class="resume-btn"><i class="fa-solid fa-layer-group"></i> Project Details</a>
+                <a href="#screenshots" class="ats-outline-btn"><i class="fa-solid fa-images"></i> View Screenshots</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- OVERVIEW — split layout -->
+    <section class="ats-section" id="overview">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2><i class="fa-solid fa-info-circle"></i> Project Overview</h2>
+        </div>
+        <div class="overview-split">
+            <div class="overview-left">
+                <div class="overview-icon-lg"><i class="fa-solid fa-code"></i></div>
+                <h3>Applicant Tracking System</h3>
+                <p>A comprehensive web-based platform designed to streamline and digitize the recruitment process for local companies. Built with Laravel following the MVC architecture and Prototyping methodology.</p>
+            </div>
+            <div class="overview-right">
+                <div class="overview-meta-row">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <div><span>Lead Developer</span><strong>Liam Flores</strong></div>
+                </div>
+                <div class="overview-meta-row">
+                    <i class="fa-solid fa-sitemap"></i>
+                    <div><span>Architecture</span><strong>Model-View-Controller</strong></div>
+                </div>
+                <div class="overview-meta-row">
+                    <i class="fa-solid fa-arrows-spin"></i>
+                    <div><span>Methodology</span><strong>Prototyping</strong></div>
+                </div>
+                <div class="overview-meta-row">
+                    <i class="fa-solid fa-globe"></i>
+                    <div><span>Type</span><strong>Web Platform</strong></div>
+                </div>
+            </div>
+        </div>
+        <div class="overview-team-banner">
+            <div class="team-col">
+                <span class="team-label"><i class="fa-solid fa-chalkboard-user"></i> Capstone Adviser</span>
+                <div class="team-member"><div class="team-avatar">JA</div><span>Ms. Jenelyn Aranas</span></div>
+            </div>
+            <div class="team-col">
+                <span class="team-label"><i class="fa-solid fa-users"></i> Developed in Collaboration With</span>
+                <div class="team-row">
+                    <div class="team-member"><div class="team-avatar">JA</div><span>Jenny Mae Araneta</span></div>
+                    <div class="team-member"><div class="team-avatar">JD</div><span>Jaleel Nicole De Guzman</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH STACK — categorized rows -->
+    <section class="ats-section" id="techstack">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2><i class="fa-solid fa-code"></i> Tech Stack</h2>
+        </div>
+        <div class="tech-category">
+            <h4 class="tech-cat-label"><i class="fa-solid fa-layer-group"></i> Framework & Language</h4>
+            <div class="tech-row">
+                <div class="tech-pill"><i class="fa-solid fa-fire"></i> Laravel</div>
+                <div class="tech-pill"><i class="fa-brands fa-php"></i> PHP 8.2</div>
+            </div>
+        </div>
+        <div class="tech-category">
+            <h4 class="tech-cat-label"><i class="fa-solid fa-database"></i> Database</h4>
+            <div class="tech-row">
+                <div class="tech-pill"><i class="fa-solid fa-database"></i> PostgreSQL</div>
+            </div>
+        </div>
+        <div class="tech-category">
+            <h4 class="tech-cat-label"><i class="fa-solid fa-palette"></i> Frontend</h4>
+            <div class="tech-row">
+                <div class="tech-pill"><i class="fa-brands fa-bootstrap"></i> Bootstrap 5</div>
+                <div class="tech-pill"><i class="fa-brands fa-js"></i> jQuery</div>
+                <div class="tech-pill"><i class="fa-solid fa-bolt"></i> AJAX</div>
+                <div class="tech-pill"><i class="fa-solid fa-chart-line"></i> Chart.js</div>
+                <div class="tech-pill"><i class="fa-solid fa-palette"></i> Tabler.io</div>
+            </div>
+        </div>
+        <div class="tech-category">
+            <h4 class="tech-cat-label"><i class="fa-solid fa-cloud"></i> Deployment</h4>
+            <div class="tech-row">
+                <div class="tech-pill"><i class="fa-solid fa-cloud"></i> Heroku</div>
+                <div class="tech-pill"><i class="fa-solid fa-hammer"></i> Laravel Forge</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPLOYMENT — horizontal flow -->
+    <section class="ats-section" id="deployment">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">03</span>
+            <h2><i class="fa-solid fa-cloud"></i> Deployment</h2>
+        </div>
+        <div class="deploy-flow">
+            <div class="deploy-step">
+                <div class="deploy-step-icon"><i class="fa-solid fa-code"></i></div>
+                <div class="deploy-step-info">
+                    <h4>Source Code</h4>
+                    <p>Git repository pushed to deployment pipeline</p>
+                </div>
+            </div>
+            <div class="deploy-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="deploy-step">
+                <div class="deploy-step-icon"><i class="fa-solid fa-hammer"></i></div>
+                <div class="deploy-step-info">
+                    <h4>Laravel Forge</h4>
+                    <p>Server management and SSL configuration</p>
+                </div>
+            </div>
+            <div class="deploy-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="deploy-step">
+                <div class="deploy-step-icon"><i class="fa-solid fa-cloud"></i></div>
+                <div class="deploy-step-info">
+                    <h4>Heroku Cloud</h4>
+                    <p>Auto-scaling cloud hosting platform</p>
+                </div>
+            </div>
+            <div class="deploy-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="deploy-step">
+                <div class="deploy-step-icon"><i class="fa-solid fa-database"></i></div>
+                <div class="deploy-step-info">
+                    <h4>PostgreSQL</h4>
+                    <p>Managed production database</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE — vertical with progress -->
+    <section class="ats-section" id="timeline">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">04</span>
+            <h2><i class="fa-solid fa-clock"></i> Project Timeline</h2>
+        </div>
+        <div class="tl-wrapper">
+            <div class="tl-line"><div class="tl-fill" id="timelineProgress"></div></div>
+            <div class="tl-items">
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card">
+                        <span class="tl-date">June 3, 2024</span>
+                        <h4>Project Start</h4>
+                        <p>Requirements gathering, system analysis, and initial planning phase.</p>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card">
+                        <span class="tl-date">August 2024</span>
+                        <h4>Development</h4>
+                        <p>Core features implementation, database design, and system architecture.</p>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card">
+                        <span class="tl-date">October 2024</span>
+                        <h4>Testing</h4>
+                        <p>Bug fixes, user acceptance testing, and performance optimization.</p>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot done"></div>
+                    <div class="tl-card">
+                        <span class="tl-date">December 13, 2024</span>
+                        <h4>Completed</h4>
+                        <p>Final deployment, documentation, and project submission.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tl-stats">
+            <div class="tl-stat"><div class="stat-value"><span class="stat-number" data-target="6">0</span><span class="stat-plus">+</span></div><span class="stat-label">Months Duration</span></div>
+            <div class="tl-stat"><div class="stat-value"><span class="stat-number" data-target="100">0</span><span class="stat-plus">%</span></div><span class="stat-label">Completed</span></div>
+            <div class="tl-stat"><div class="stat-value"><span class="stat-number" data-target="4">0</span></div><span class="stat-label">Team Members</span></div>
+        </div>
+    </section>
+
+    <!-- OBJECTIVES — numbered list -->
+    <section class="ats-section" id="objectives">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">05</span>
+            <h2><i class="fa-solid fa-bullseye"></i> System Objectives</h2>
+        </div>
+        <div class="obj-list">
+            <div class="obj-item">
+                <div class="obj-num">01</div>
+                <div class="obj-content">
+                    <h4>Streamline Application Process</h4>
+                    <p>Digitize and automate the entire applicant registration and tracking workflow.</p>
+                </div>
+                <div class="obj-icon"><i class="fa-solid fa-robot"></i></div>
+            </div>
+            <div class="obj-item">
+                <div class="obj-num">02</div>
+                <div class="obj-content">
+                    <h4>Real-time Status Tracking</h4>
+                    <p>Provide applicants with instant updates on their application progress.</p>
+                </div>
+                <div class="obj-icon"><i class="fa-solid fa-eye"></i></div>
+            </div>
+            <div class="obj-item">
+                <div class="obj-num">03</div>
+                <div class="obj-content">
+                    <h4>Secure Data Management</h4>
+                    <p>Implement role-based access control and secure storage.</p>
+                </div>
+                <div class="obj-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            </div>
+            <div class="obj-item">
+                <div class="obj-num">04</div>
+                <div class="obj-content">
+                    <h4>Analytics & Reporting</h4>
+                    <p>Generate comprehensive reports and insights for administrators.</p>
+                </div>
+                <div class="obj-icon"><i class="fa-solid fa-chart-pie"></i></div>
+            </div>
+            <div class="obj-item">
+                <div class="obj-num">05</div>
+                <div class="obj-content">
+                    <h4>Automated Notifications</h4>
+                    <p>Send email and SMS alerts for important application milestones.</p>
+                </div>
+                <div class="obj-icon"><i class="fa-solid fa-bell"></i></div>
+            </div>
+            <div class="obj-item">
+                <div class="obj-num">06</div>
+                <div class="obj-content">
+                    <h4>Document Management</h4>
+                    <p>Automated document verification, storage, and retrieval system.</p>
+                </div>
+                <div class="obj-icon"><i class="fa-solid fa-folder-open"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES — 2-col with accent -->
+    <section class="ats-section" id="features">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">06</span>
+            <h2><i class="fa-solid fa-star"></i> Key Features</h2>
+        </div>
+        <div class="feat-grid">
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-file-lines"></i></div><h4>Resume Parsing</h4><p>Extract and analyze key information from resumes.</p></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-ranking-star"></i></div><h4>Candidate Ranking</h4><p>Intelligent ranking based on job requirements.</p></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-clipboard-check"></i></div><h4>Evaluation Test</h4><p>Online assessment and skill testing.</p></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-file-pen"></i></div><h4>Evaluation Form</h4><p>Comprehensive HR evaluation forms.</p></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-arrows-rotate"></i></div><h4>Status Tracking</h4><p>Real-time application monitoring.</p></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-chart-column"></i></div><h4>Analytics Dashboard</h4><p>Hiring statistics and visual insights.</p></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-plus-circle"></i></div><h4>Add Job</h4><p>Job posting and management interface.</p></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-comments"></i></div><h4>Communication Hub</h4><p>Centralized messaging system.</p></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-gauge-high"></i></div><h4>Candidate Dashboard</h4><p>Personalized applicant portal.</p></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-message"></i></div><h4>Feedback Form</h4><p>User feedback collection and management.</p></div>
+        </div>
+    </section>
+
+    <!-- SCREENSHOTS — uniform grid with carousels -->
+    <section class="ats-section" id="screenshots">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">07</span>
+            <h2><i class="fa-solid fa-images"></i> Project Screenshots</h2>
+        </div>
+        <div class="screenshot-tabs">
+            <button class="screenshot-tab active" data-tab="client">Client Side</button>
+            <button class="screenshot-tab" data-tab="admin">Admin Side</button>
+        </div>
+        <div class="screenshot-grid" id="screenshotGrid">
+            <!-- CLIENT SIDE -->
+            <div class="screenshot-card" data-side="client">
+                <div class="screenshot-carousel">
+                    <div class="carousel-track"><img src="../images/capstone/authentication.png" alt="Authentication Page"></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Authentication Page</h4>
+                    <p>Login and registration with role-based redirection.</p>
+                    <div class="screenshot-tags"><span>Login</span><span>Registration</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="client">
+                <div class="screenshot-carousel">
+                    <div class="carousel-track"><img src="../images/capstone/signup.png" alt="Sign Up Form"></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Sign Up Form</h4>
+                    <p>New users can create accounts to access system features.</p>
+                    <div class="screenshot-tags"><span>Registration</span><span>Account Creation</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="client">
+                <div class="screenshot-carousel">
+                    <div class="carousel-track"><img src="../images/capstone/email-verification.png" alt="Email Verification"></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Email Verification</h4>
+                    <p>Laravel's built-in verification system.</p>
+                    <div class="screenshot-tags"><span>Laravel Mail</span><span>Verification</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="client">
+                <div class="screenshot-carousel has-carousel">
+                    <div class="carousel-track">
+                        <img src="../images/capstone/services1.png" alt="Services 1">
+                        <img src="../images/capstone/services2.png" alt="Services 2">
+                        <img src="../images/capstone/services3.png" alt="Services 3">
+                        <img src="../images/capstone/services4.png" alt="Services 4">
+                        <img src="../images/capstone/services5.png" alt="Services 5">
+                    </div>
+                    <button class="carousel-btn carousel-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="carousel-btn carousel-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="carousel-dots"><span class="active"></span><span></span><span></span><span></span><span></span></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Services Page</h4>
+                    <p>Services and product features with navigation to careers.</p>
+                    <div class="screenshot-tags"><span>Services</span><span>CTA</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="client">
+                <div class="screenshot-carousel has-carousel">
+                    <div class="carousel-track">
+                        <img src="../images/capstone/careers1.png" alt="Careers 1">
+                        <img src="../images/capstone/careers2.png" alt="Careers 2">
+                        <img src="../images/capstone/careers3.png" alt="Careers 3">
+                    </div>
+                    <button class="carousel-btn carousel-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="carousel-btn carousel-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="carousel-dots"><span class="active"></span><span></span><span></span></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Careers Page</h4>
+                    <p>Available job openings and employment details.</p>
+                    <div class="screenshot-tags"><span>Job Listings</span><span>Work Arrangements</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="client">
+                <div class="screenshot-carousel">
+                    <div class="carousel-track"><img src="../images/capstone/contact.png" alt="Contact Page"></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Contact Page</h4>
+                    <p>Contact form and location map.</p>
+                    <div class="screenshot-tags"><span>Feedback</span><span>Map</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="client">
+                <div class="screenshot-carousel">
+                    <div class="carousel-track"><img src="../images/capstone/appform.png" alt="Application Form"></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Application Form</h4>
+                    <p>Job application with document upload.</p>
+                    <div class="screenshot-tags"><span>Job Details</span><span>Resume Upload</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="client">
+                <div class="screenshot-carousel">
+                    <div class="carousel-track"><img src="../images/capstone/appstatus2.png" alt="Application Status"></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Application Status</h4>
+                    <p>Real-time application progress tracking.</p>
+                    <div class="screenshot-tags"><span>Tracking</span><span>Status</span></div>
+                </div>
+            </div>
+
+            <!-- ADMIN SIDE -->
+            <div class="screenshot-card" data-side="admin">
+                <div class="screenshot-carousel">
+                    <div class="carousel-track"><img src="../images/capstone/joblisting.png" alt="Job Listing"></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Job Listing Page</h4>
+                    <p>Browse and manage all available job postings.</p>
+                    <div class="screenshot-tags"><span>Job Listings</span><span>Admin</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="admin">
+                <div class="screenshot-carousel">
+                    <div class="carousel-track"><img src="../images/capstone/editjob.png" alt="Edit Job"></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Edit Job Page</h4>
+                    <p>Update job details, requirements, and status.</p>
+                    <div class="screenshot-tags"><span>Edit</span><span>Job Posts</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="admin">
+                <div class="screenshot-carousel">
+                    <div class="carousel-track"><img src="../images/capstone/deletejob.png" alt="Delete Job"></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Delete Job</h4>
+                    <p>Remove job postings with confirmation dialog.</p>
+                    <div class="screenshot-tags"><span>Delete</span><span>Confirmation</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="admin">
+                <div class="screenshot-carousel has-carousel">
+                    <div class="carousel-track">
+                        <img src="../images/capstone/summary.png" alt="Summary">
+                        <img src="../images/capstone/resumedisplay.png" alt="Resume Display">
+                        <img src="../images/capstone/notes.png" alt="Notes">
+                        <img src="../images/capstone/appstatus.png" alt="Application Status">
+                    </div>
+                    <button class="carousel-btn carousel-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="carousel-btn carousel-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="carousel-dots"><span class="active"></span><span></span><span></span><span></span></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Candidate Info Page</h4>
+                    <p>Complete candidate profile with resume, notes, and status.</p>
+                    <div class="screenshot-tags"><span>Candidate</span><span>Profile</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="admin">
+                <div class="screenshot-carousel">
+                    <div class="carousel-track"><img src="../images/capstone/resumedisplay.png" alt="Resume Display"></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Resume Display</h4>
+                    <p>View parsed resume data and documents.</p>
+                    <div class="screenshot-tags"><span>Resume</span><span>Display</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="admin">
+                <div class="screenshot-carousel">
+                    <div class="carousel-track"><img src="../images/capstone/notes.png" alt="Notes Tab"></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Notes Tab</h4>
+                    <p>Internal notes and annotations for applicants.</p>
+                    <div class="screenshot-tags"><span>Notes</span><span>Annotations</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="admin">
+                <div class="screenshot-carousel">
+                    <div class="carousel-track"><img src="../images/capstone/appstatus.png" alt="Application Status Tab"></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Application Status Tab</h4>
+                    <p>Track and update application progress.</p>
+                    <div class="screenshot-tags"><span>Status</span><span>Tracking</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="admin">
+                <div class="screenshot-carousel has-carousel">
+                    <div class="carousel-track">
+                        <img src="../images/capstone/feedback1.png" alt="Feedback 1">
+                        <img src="../images/capstone/feedback2.png" alt="Feedback 2">
+                    </div>
+                    <button class="carousel-btn carousel-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="carousel-btn carousel-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="carousel-dots"><span class="active"></span><span></span></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Feedback Page</h4>
+                    <p>View and respond to user feedback.</p>
+                    <div class="screenshot-tags"><span>Feedback</span><span>Responses</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="admin">
+                <div class="screenshot-carousel">
+                    <div class="carousel-track"><img src="../images/capstone/activity.png" alt="Activity Page"></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Activity Page</h4>
+                    <p>System activity logs and audit trail.</p>
+                    <div class="screenshot-tags"><span>Activity</span><span>Logs</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="admin">
+                <div class="screenshot-carousel">
+                    <div class="carousel-track"><img src="../images/capstone/candidateranking.png" alt="Candidate Ranking"></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Candidate Ranking</h4>
+                    <p>Intelligent candidate ranking and comparison.</p>
+                    <div class="screenshot-tags"><span>Ranking</span><span>Scoring</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="admin">
+                <div class="screenshot-carousel has-carousel">
+                    <div class="carousel-track">
+                        <img src="../images/capstone/evaluation1.png" alt="Evaluation 1">
+                        <img src="../images/capstone/evaluation2.png" alt="Evaluation 2">
+                    </div>
+                    <button class="carousel-btn carousel-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="carousel-btn carousel-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="carousel-dots"><span class="active"></span><span></span></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Evaluation Form</h4>
+                    <p>Manage evaluation tests and scoring.</p>
+                    <div class="screenshot-tags"><span>Tests</span><span>Scoring</span></div>
+                </div>
+            </div>
+            <div class="screenshot-card" data-side="admin">
+                <div class="screenshot-carousel has-carousel">
+                    <div class="carousel-track">
+                        <img src="../images/capstone/analytics1.png" alt="Analytics 1">
+                        <img src="../images/capstone/analytics2.png" alt="Analytics 2">
+                    </div>
+                    <button class="carousel-btn carousel-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="carousel-btn carousel-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="carousel-dots"><span class="active"></span><span></span></div>
+                </div>
+                <div class="screenshot-info">
+                    <h4>Analytics Page</h4>
+                    <p>Hiring statistics, charts, and reports.</p>
+                    <div class="screenshot-tags"><span>Charts</span><span>Reports</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHTS — full-width banner -->
+    <section class="ats-section ats-highlights" id="highlights">
+        <div class="highlights-inner">
+            <h3>Project Highlights</h3>
+            <div class="hl-stats">
+                <div class="hl-stat"><div class="stat-value"><span class="stat-number" data-target="6">0</span><span class="stat-plus">+</span></div><span class="stat-label">Months Development</span></div>
+                <div class="hl-stat"><div class="stat-value"><span class="stat-number" data-target="4">0</span></div><span class="stat-label">Team Members</span></div>
+                <div class="hl-stat"><div class="stat-value"><span class="stat-number" data-target="10">0</span><span class="stat-plus">+</span></div><span class="stat-label">Technologies</span></div>
+                <div class="hl-stat"><div class="stat-value"><span class="stat-number" data-target="10">0</span><span class="stat-plus">+</span></div><span class="stat-label">Key Features</span></div>
+                <div class="hl-stat"><div class="stat-value"><span class="stat-number" data-target="20">0</span><span class="stat-plus">+</span></div><span class="stat-label">Screenshots</span></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">© 2024 Liam Flores — Applicant Tracking System Capstone Project</div>
+        <div class="footer-links">
+            <a href="https://github.com/liamflores-09" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="../index.html"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Screenshot Lightbox -->
+    <div class="ss-lightbox" id="ssLightbox">
+        <div class="ss-lightbox-backdrop" id="ssLightboxBackdrop"></div>
+        <div class="ss-lightbox-panel">
+            <div class="ss-lightbox-header">
+                <div class="ss-lightbox-title">
+                    <h4 id="ssLightboxTitle"></h4>
+                    <p id="ssLightboxDesc"></p>
+                </div>
+                <button class="ss-lightbox-close" id="ssLightboxClose"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="ss-lightbox-body">
+                <button class="ss-lightbox-nav ss-lightbox-prev" id="ssLightboxPrev"><i class="fa-solid fa-chevron-left"></i></button>
+                <div class="ss-lightbox-img-wrap">
+                    <img src="" alt="" id="ssLightboxImg">
+                </div>
+                <button class="ss-lightbox-nav ss-lightbox-next" id="ssLightboxNext"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+            <div class="ss-lightbox-footer">
+                <span class="ss-lightbox-counter" id="ssLightboxCounter"></span>
+                <div class="ss-lightbox-dots" id="ssLightboxDots"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/ats.js"></script>
+</body>
+</html>
