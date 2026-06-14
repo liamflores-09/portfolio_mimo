@@ -607,6 +607,41 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Share widget
+    const shareToggle = document.getElementById('shareToggle');
+    const shareOptions = document.querySelector('.share-options');
+    const copyLink = document.getElementById('copyLink');
+
+    if (shareToggle && shareOptions) {
+        shareToggle.addEventListener('click', () => {
+            shareToggle.classList.toggle('active');
+            shareOptions.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.share-widget')) {
+                shareToggle.classList.remove('active');
+                shareOptions.classList.remove('active');
+            }
+        });
+    }
+
+    if (copyLink) {
+        copyLink.addEventListener('click', () => {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                const toast = document.createElement('div');
+                toast.className = 'share-copied';
+                toast.textContent = 'Link copied!';
+                document.body.appendChild(toast);
+                requestAnimationFrame(() => toast.classList.add('active'));
+                setTimeout(() => {
+                    toast.classList.remove('active');
+                    setTimeout(() => toast.remove(), 300);
+                }, 1500);
+            });
+        });
+    }
+
     // Easter egg
     let keys = [];
     const sequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];

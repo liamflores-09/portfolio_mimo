@@ -3748,3 +3748,43 @@ section.visible .contact-content {
 
 .resume-modal-body { flex: 1; min-height: 0; }
 .resume-modal-body iframe { width: 100%; height: 100%; border: none; }
+
+/* Share Widget */
+.share-widget {
+    position: fixed; bottom: 5.5rem; right: 2rem; z-index: 1000;
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+}
+.share-toggle {
+    width: 42px; height: 42px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--bg-end);
+    color: var(--text-muted); font-size: 0.85rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+}
+.share-toggle:hover { border-color: var(--text); color: var(--text); }
+.share-toggle.active { background: var(--text); color: var(--bg-start); border-color: var(--text); }
+
+.share-options {
+    display: flex; flex-direction: column; gap: 0.4rem;
+    opacity: 0; pointer-events: none; transform: translateY(8px);
+    transition: all 0.3s ease;
+}
+.share-options.active { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+.share-option {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--bg-end);
+    color: var(--text-muted); font-size: 0.75rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; transition: all 0.3s;
+}
+.share-option:hover { border-color: var(--text); color: var(--text); }
+
+.share-copied {
+    position: fixed; bottom: 9rem; right: 2rem;
+    padding: 0.5rem 1rem; background: var(--text); color: var(--bg-start);
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.5px;
+    opacity: 0; transform: translateY(5px); transition: all 0.3s;
+    pointer-events: none; z-index: 1001;
+}
+.share-copied.active { opacity: 1; transform: translateY(0); }
