@@ -14,16 +14,14 @@
     pointer-events: none;
 }
 
-/* Page Transition */
+/* Page Transition — blur dissolve (Index → ATS only) */
 .page-transition {
     position: fixed; inset: 0; z-index: 99999;
-    background: #0f0f0f;
-    transform: scaleY(0); transform-origin: bottom;
-    transition: transform 0.35s cubic-bezier(0.7, 0, 0.3, 1);
-    pointer-events: none;
+    background: var(--bg-start);
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.35s ease;
 }
-.page-transition.active { transform: scaleY(1); transform-origin: top; }
-.page-transition.exit { transform: scaleY(1); transform-origin: bottom; transition: transform 0.35s cubic-bezier(0.7, 0, 0.3, 1); }
+.page-transition.active { opacity: 1; pointer-events: auto; }
 
 :root {
     --white: #ffffff;

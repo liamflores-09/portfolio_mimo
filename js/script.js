@@ -1,30 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Page transition
+    // Page transition — blur dissolve (Index → ATS only)
     const pageTransition = document.getElementById('pageTransition');
     if (pageTransition) {
-        // Fade in on load
-        pageTransition.style.transformOrigin = 'top';
-        pageTransition.style.transform = 'scaleY(1)';
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                pageTransition.style.transition = 'transform 0.35s cubic-bezier(0.7, 0, 0.3, 1)';
-                pageTransition.style.transform = 'scaleY(0)';
-            });
-        });
-
-        // Fade out on navigate
         document.querySelectorAll('a[href]').forEach(link => {
             const href = link.getAttribute('href');
             if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('http') || link.target === '_blank') return;
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                pageTransition.style.transformOrigin = 'bottom';
-                pageTransition.style.transform = 'scaleY(0)';
-                requestAnimationFrame(() => {
-                    pageTransition.style.transition = 'transform 0.35s cubic-bezier(0.7, 0, 0.3, 1)';
-                    pageTransition.style.transform = 'scaleY(1)';
-                });
-                setTimeout(() => { window.location.href = href; }, 350);
+                pageTransition.classList.add('active');
+                document.body.style.filter = 'blur(8px)';
+                document.body.style.transition = 'filter 0.4s ease';
+                setTimeout(() => { window.location.href = href; }, 400);
             });
         });
     }

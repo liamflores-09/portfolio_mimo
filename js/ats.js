@@ -1,32 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Page transition
-    const pageTransition = document.getElementById('pageTransition');
-    if (pageTransition) {
-        pageTransition.style.transformOrigin = 'top';
-        pageTransition.style.transform = 'scaleY(1)';
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                pageTransition.style.transition = 'transform 0.35s cubic-bezier(0.7, 0, 0.3, 1)';
-                pageTransition.style.transform = 'scaleY(0)';
-            });
-        });
-
-        document.querySelectorAll('a[href]').forEach(link => {
-            const href = link.getAttribute('href');
-            if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('http') || link.target === '_blank') return;
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                pageTransition.style.transformOrigin = 'bottom';
-                pageTransition.style.transform = 'scaleY(0)';
-                requestAnimationFrame(() => {
-                    pageTransition.style.transition = 'transform 0.35s cubic-bezier(0.7, 0, 0.3, 1)';
-                    pageTransition.style.transform = 'scaleY(1)';
-                });
-                setTimeout(() => { window.location.href = href; }, 350);
-            });
-        });
-    }
-
     // Theme toggle
     const themeToggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme') || 'dark';
