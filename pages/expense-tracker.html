@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Budget Tracker (MIK!) | Liam Flores</title>
+    <meta name="description" content="Case study of the Personal Budget Tracker — a brutalist finance dashboard built with Laravel, Vue 3, and Kinetic Typography.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/ats.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230f0f0f'/><text x='50' y='68' font-family='Inter,sans-serif' font-size='42' font-weight='800' fill='white' text-anchor='middle'>LF</text></svg>">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <a href="../index.html" class="ats-back-link"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+
+    <!-- HERO -->
+    <section class="ats-hero">
+        <div class="hero-grid"></div>
+        <div class="ats-hero-content">
+            <div class="ats-badge"><i class="fa-solid fa-circle-check"></i> Completed</div>
+            <h1 class="ats-brand">MIK!</h1>
+            <h1 class="ats-title">Personal Budget Tracker</h1>
+            <p class="ats-subtitle">Case Study — A brutalist finance dashboard built with Laravel, Vue 3, and Kinetic Typography</p>
+            <div class="ats-notice">
+                <i class="fa-solid fa-circle-info"></i>
+                <p>This case study covers the design philosophy, technical architecture, and feature breakdown of the Personal Budget Tracker — a project built in a single session with <strong>Xiaomi MiMo Code</strong> assistance.</p>
+            </div>
+            <div class="ats-cta">
+                <a href="#features" class="cta-button">View Features <span class="arrow">→</span></a>
+                <a href="#overview" class="resume-btn"><i class="fa-solid fa-layer-group"></i> Project Details</a>
+                <a href="https://github.com/liamflores-09/personal_budget_tracker" target="_blank" class="ats-outline-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="ats-section" id="overview">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2><i class="fa-solid fa-info-circle"></i> Overview</h2>
+        </div>
+        <div class="overview-split">
+            <div class="overview-left">
+                <div class="overview-icon-lg"><i class="fa-solid fa-receipt"></i></div>
+                <h3>Personal Budget Tracker (MIK!)</h3>
+                <p>A brutalist finance dashboard built with Laravel, Vue 3, and Kinetic Typography. Instead of following the sea of dark-mode SaaS dashboards, this project uses typography as the interface — massive scale, constant motion, hard color inversions, and brutalist geometry.</p>
+            </div>
+            <div class="overview-right">
+                <div class="overview-meta-row">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <div><span>Role</span><strong>Full-Stack Developer & UI/UX Designer</strong></div>
+                </div>
+                <div class="overview-meta-row">
+                    <i class="fa-solid fa-code"></i>
+                    <div><span>Stack</span><strong>Laravel · Vue 3 · Inertia.js · Tailwind CSS</strong></div>
+                </div>
+                <div class="overview-meta-row">
+                    <i class="fa-solid fa-clock"></i>
+                    <div><span>Timeline</span><strong>Single Session (Design + Implementation)</strong></div>
+                </div>
+                <div class="overview-meta-row">
+                    <i class="fa-solid fa-globe"></i>
+                    <div><span>Type</span><strong>Web Application — Case Study</strong></div>
+                </div>
+                <div class="overview-meta-row">
+                    <i class="fa-solid fa-robot"></i>
+                    <div><span>AI Assistance</span><strong>Xiaomi MiMo Code</strong></div>
+                </div>
+                <div class="overview-meta-row">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <div><span>Status</span><strong><a href="https://github.com/liamflores-09/personal_budget_tracker" target="_blank" style="color:var(--text);">Live on GitHub</a></strong></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="ats-section" id="problem">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2><i class="fa-solid fa-circle-exclamation"></i> Problem</h2>
+        </div>
+        <div class="obj-list">
+            <div class="obj-item">
+                <div class="obj-num">01</div>
+                <div class="obj-content">
+                    <h4>Bloated or Basic</h4>
+                    <p>Personal finance tracking tools are either bloated with features nobody uses, or so basic they're abandoned after a week.</p>
+                </div>
+                <div class="obj-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            </div>
+            <div class="obj-item">
+                <div class="obj-num">02</div>
+                <div class="obj-content">
+                    <h4>The Core Need</h4>
+                    <p>See your financial health at a glance, track spending patterns, and stay within budget — without the cognitive overhead of enterprise accounting software.</p>
+                </div>
+                <div class="obj-icon"><i class="fa-solid fa-bullseye"></i></div>
+            </div>
+            <div class="obj-item">
+                <div class="obj-num">03</div>
+                <div class="obj-content">
+                    <h4>The Goal</h4>
+                    <p>Build a budget tracker that feels alive — something you want to open every day because the interface itself is engaging.</p>
+                </div>
+                <div class="obj-icon"><i class="fa-solid fa-heart"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESIGN PHILOSOPHY -->
+    <section class="ats-section" id="philosophy">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">03</span>
+            <h2><i class="fa-solid fa-palette"></i> Design Philosophy</h2>
+        </div>
+        <p style="font-size:1rem; color:var(--text-secondary); max-width:750px; margin-bottom:3rem; line-height:1.8;">Instead of following the sea of dark-mode SaaS dashboards, this project uses <strong style="color:var(--text);">Kinetic Typography</strong> — a brutalist design system where typography <em>is</em> the interface.</p>
+
+        <div class="feat-grid">
+            <div class="feat-card">
+                <div class="feat-icon"><i class="fa-solid fa-font"></i></div>
+                <div>
+                    <h4>Typography as Structure</h4>
+                    <p>Headlines at 6–10rem, numbers at 8–12rem. Text fills the screen and becomes the primary visual element.</p>
+                </div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><i class="fa-solid fa-arrows-spin"></i></div>
+                <div>
+                    <h4>Constant Motion</h4>
+                    <p>Infinite marquees scroll financial stats. Nothing is ever still.</p>
+                </div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><i class="fa-solid fa-arrows-turn-to-dots"></i></div>
+                <div>
+                    <h4>Hard Color Inversions</h4>
+                    <p>Cards flood to acid yellow on hover, text inverts to black. No gentle fades — instant, dramatic shifts.</p>
+                </div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><i class="fa-solid fa-vector-square"></i></div>
+                <div>
+                    <h4>Brutalist Geometry</h4>
+                    <p>0px border radius, 2px solid borders, completely flat design. No shadows, no gradients.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="obj-list" style="margin-top:1px;">
+            <div class="obj-item">
+                <div class="obj-num" style="color:var(--text-muted);">WHY</div>
+                <div class="obj-content">
+                    <h4>Why This Approach</h4>
+                    <p>Generic dark mode with subtle gradients had become invisible — every finance app looks the same. Kinetic Typography creates an instantly recognizable identity through aggressive scale, relentless motion, and high-contrast color.</p>
+                </div>
+                <div class="obj-icon"><i class="fa-solid fa-lightbulb"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESIGN SYSTEM -->
+    <section class="ats-section" id="design-system">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">04</span>
+            <h2><i class="fa-solid fa-sliders"></i> Design System</h2>
+        </div>
+
+        <h3 style="font-size:0.7rem; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-muted); margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem;"><i class="fa-solid fa-droplet"></i> Color Architecture</h3>
+        <div class="tech-category" style="margin-bottom:3rem;">
+            <div class="tech-row">
+                <div class="tech-pill" style="gap:0.75rem;"><span style="width:14px;height:14px;background:#09090B;border:1px solid var(--border);flex-shrink:0;display:inline-block;"></span> Background #09090B</div>
+                <div class="tech-pill" style="gap:0.75rem;"><span style="width:14px;height:14px;background:#FAFAFA;border:1px solid var(--border);flex-shrink:0;display:inline-block;"></span> Foreground #FAFAFA</div>
+                <div class="tech-pill" style="gap:0.75rem;"><span style="width:14px;height:14px;background:#27272A;border:1px solid var(--border);flex-shrink:0;display:inline-block;"></span> Muted #27272A</div>
+                <div class="tech-pill" style="gap:0.75rem;"><span style="width:14px;height:14px;background:#A1A1AA;border:1px solid var(--border);flex-shrink:0;display:inline-block;"></span> Muted FG #A1A1AA</div>
+                <div class="tech-pill" style="gap:0.75rem;"><span style="width:14px;height:14px;background:#DFE104;border:1px solid var(--border);flex-shrink:0;display:inline-block;"></span> Accent #DFE104</div>
+                <div class="tech-pill" style="gap:0.75rem;"><span style="width:14px;height:14px;background:#3F3F46;border:1px solid var(--border);flex-shrink:0;display:inline-block;"></span> Border #3F3F46</div>
+            </div>
+        </div>
+        <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:3rem;">The single accent color (acid yellow) is used sparingly but boldly — navigation highlights, hover states, the stats marquee, and the salary history cards.</p>
+
+        <h3 style="font-size:0.7rem; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-muted); margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem;"><i class="fa-solid fa-text-height"></i> Typography Scale</h3>
+        <div class="tech-category" style="margin-bottom:1.5rem;">
+            <div class="tech-row" style="flex-direction:column; gap:0;">
+                <div class="tech-pill" style="justify-content:space-between; border-radius:0; border-bottom:none;"><span style="font-weight:700;">Page headings</span><span style="color:var(--text-muted); font-family:'Courier New',monospace; font-size:0.75rem;">clamp(2rem, 6vw, 5rem)</span></div>
+                <div class="tech-pill" style="justify-content:space-between; border-radius:0; border-bottom:none;"><span style="font-weight:700;">Hero numbers</span><span style="color:var(--text-muted); font-family:'Courier New',monospace; font-size:0.75rem;">clamp(3rem, 12vw, 10rem)</span></div>
+                <div class="tech-pill" style="justify-content:space-between; border-radius:0; border-bottom:none;"><span style="font-weight:700;">Background numbers</span><span style="color:var(--text-muted); font-family:'Courier New',monospace; font-size:0.75rem;">clamp(8rem, 20vw, 16rem)</span></div>
+                <div class="tech-pill" style="justify-content:space-between; border-radius:0; border-bottom:none;"><span style="font-weight:700;">Section titles</span><span style="color:var(--text-muted); font-family:'Courier New',monospace; font-size:0.75rem;">text-3xl uppercase, tight tracking</span></div>
+                <div class="tech-pill" style="justify-content:space-between; border-radius:0; border-bottom:none;"><span style="font-weight:700;">Body text</span><span style="color:var(--text-muted); font-family:'Courier New',monospace; font-size:0.75rem;">text-lg — larger than typical web</span></div>
+                <div class="tech-pill" style="justify-content:space-between; border-radius:0;"><span style="font-weight:700;">Labels</span><span style="color:var(--text-muted); font-family:'Courier New',monospace; font-size:0.75rem;">text-xs uppercase, tracking-widest</span></div>
+            </div>
+        </div>
+        <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1rem;"><strong style="color:var(--text);">Font:</strong> Space Grotesk — strong geometric shapes, excellent at large sizes.</p>
+        <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:3rem;"><strong style="color:var(--text);">Shape Language:</strong> Border radius: 0px everywhere · Borders: 2px solid #3F3F46 · Shadows: None — depth through color layering only · Grid dividers: gap-px with border-colored backgrounds create connected card systems</p>
+    </section>
+
+    <!-- TECH STACK -->
+    <section class="ats-section" id="techstack">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">05</span>
+            <h2><i class="fa-solid fa-code"></i> Tech Stack</h2>
+        </div>
+        <div class="tech-category">
+            <h4 class="tech-cat-label"><i class="fa-solid fa-layer-group"></i> Architecture</h4>
+            <div class="deploy-flow">
+                <div class="deploy-step">
+                    <div class="deploy-step-icon"><i class="fa-solid fa-fire"></i></div>
+                    <div class="deploy-step-info"><h4>Laravel</h4><p>Backend · Auth · DB</p></div>
+                </div>
+                <div class="deploy-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="deploy-step">
+                    <div class="deploy-step-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <div class="deploy-step-info"><h4>Inertia.js</h4><p>Bridge · SPA-like Nav</p></div>
+                </div>
+                <div class="deploy-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="deploy-step">
+                    <div class="deploy-step-icon"><i class="fa-brands fa-vuejs"></i></div>
+                    <div class="deploy-step-info"><h4>Vue 3</h4><p>Components · Reactivity</p></div>
+                </div>
+                <div class="deploy-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="deploy-step">
+                    <div class="deploy-step-icon"><i class="fa-solid fa-wind"></i></div>
+                    <div class="deploy-step-info"><h4>Tailwind CSS</h4><p>Design Tokens · Styling</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="tech-category" style="margin-top:1px;">
+            <h4 class="tech-cat-label"><i class="fa-solid fa-database"></i> Design Token System</h4>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border);">
+                <div class="tech-pill" style="flex-direction:column; align-items:flex-start; gap:0.4rem; transition:all 0.2s; cursor:default;" onmouseover="this.style.background='#09090B'; this.style.borderColor='#09090B'; this.style.color='#FAFAFA';" onmouseout="this.style.background=''; this.style.borderColor=''; this.style.color='';">
+                    <span style="width:24px; height:24px; background:#09090B; border:1px solid var(--border); flex-shrink:0;"></span>
+                    <code style="color:var(--text-muted); font-size:0.75rem;">bg: '#09090B'</code>
+                </div>
+                <div class="tech-pill" style="flex-direction:column; align-items:flex-start; gap:0.4rem; transition:all 0.2s; cursor:default;" onmouseover="this.style.background='#FAFAFA'; this.style.borderColor='#FAFAFA'; this.style.color='#09090B';" onmouseout="this.style.background=''; this.style.borderColor=''; this.style.color='';">
+                    <span style="width:24px; height:24px; background:#FAFAFA; border:1px solid var(--border); flex-shrink:0;"></span>
+                    <code style="color:var(--text-muted); font-size:0.75rem;">fg: '#FAFAFA'</code>
+                </div>
+                <div class="tech-pill" style="flex-direction:column; align-items:flex-start; gap:0.4rem; transition:all 0.2s; cursor:default;" onmouseover="this.style.background='#DFE104'; this.style.borderColor='#DFE104'; this.style.color='#000000';" onmouseout="this.style.background=''; this.style.borderColor=''; this.style.color='';">
+                    <span style="width:24px; height:24px; background:#DFE104; border:1px solid var(--border); flex-shrink:0;"></span>
+                    <code style="color:var(--text-muted); font-size:0.75rem;">accent: '#DFE104'</code>
+                </div>
+                <div class="tech-pill" style="flex-direction:column; align-items:flex-start; gap:0.4rem; transition:all 0.2s; cursor:default;" onmouseover="this.style.background='#3F3F46'; this.style.borderColor='#3F3F46'; this.style.color='#FAFAFA';" onmouseout="this.style.background=''; this.style.borderColor=''; this.style.color='';">
+                    <span style="width:24px; height:24px; background:#3F3F46; border:1px solid var(--border); flex-shrink:0;"></span>
+                    <code style="color:var(--text-muted); font-size:0.75rem;">border: '#3F3F46'</code>
+                </div>
+            </div>
+        </div>
+        <p style="font-size:0.85rem; color:var(--text-secondary); margin-top:1.5rem;">Every component uses these tokens — no hardcoded colors. Changing the accent color globally requires a single token change.</p>
+    </section>
+
+    <!-- KEY FEATURES -->
+    <section class="ats-section" id="features">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">06</span>
+            <h2><i class="fa-solid fa-star"></i> Key Features</h2>
+        </div>
+        <div class="feat-grid">
+            <div class="feat-card">
+                <div class="feat-icon"><i class="fa-solid fa-tv"></i></div>
+                <div>
+                    <h4>Stats Marquee</h4>
+                    <p>A yellow banner that scrolls budget, spent, remaining, and percentage at fast speed. Traditional stat cards are static and forgettable — a marquee creates urgency and energy.</p>
+                </div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><i class="fa-solid fa-hashtag"></i></div>
+                <div>
+                    <h4>Massive Hero Number</h4>
+                    <p>The total budget is displayed at viewport-responsive scale (clamp(3rem, 12vw, 10rem)). In Kinetic Typography, scale = importance.</p>
+                </div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                <div>
+                    <h4>Calendar with Heatmap</h4>
+                    <p>Days with expenses show intensity through background color. The selected day inverts to the accent color with a dramatic scale transform.</p>
+                </div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><i class="fa-solid fa-fill-drip"></i></div>
+                <div>
+                    <h4>Hard Color Inversion Cards</h4>
+                    <p>Every card floods to acid yellow on hover. All text simultaneously inverts to black. The signature interaction — instant, dramatic, memorable.</p>
+                </div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><i class="fa-solid fa-table-cells"></i></div>
+                <div>
+                    <h4>Connected Card Grids</h4>
+                    <p>Using gap-px with a border-colored parent container, cards appear as one connected system with hairline dividers — like a circuit board.</p>
+                </div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><i class="fa-solid fa-keyboard"></i></div>
+                <div>
+                    <h4>Oversized Form Inputs</h4>
+                    <p>All inputs use bottom-border only, oversized text (text-2xl font-bold), and uppercase placeholder text. Forms become part of the design language.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPONENT ARCHITECTURE -->
+    <section class="ats-section" id="components">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">07</span>
+            <h2><i class="fa-solid fa-cubes"></i> Component Architecture</h2>
+        </div>
+        <div class="feat-grid">
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-square"></i></div><div><h4>PrimaryButton</h4><p>Acid yellow, hard border, scale hover</p></div></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-regular fa-square"></i></div><div><h4>SecondaryButton</h4><p>Transparent, inverts to white on hover</p></div></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-i-cursor"></i></div><div><h4>TextInput</h4><p>Bottom-border only, oversized, bold</p></div></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-square-minus"></i></div><div><h4>Modal</h4><p>Flat dark overlay, 2px border, no blur</p></div></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-comment"></i></div><div><h4>Toast</h4><p>Inertia flash message display</p></div></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-bars"></i></div><div><h4>AuthenticatedLayout</h4><p>Brutalist nav with accent navigation</p></div></div>
+        </div>
+
+        <h3 style="font-size:0.7rem; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-muted); margin:3rem 0 1.5rem; display:flex; align-items:center; gap:0.5rem;"><i class="fa-solid fa-wand-magic-sparkles"></i> Motion System</h3>
+        <div class="feat-grid">
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-forward-fast"></i></div><div><h4>Stats Marquee</h4><p>12s linear — high-energy financial overview</p></div></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-forward"></i></div><div><h4>Branding Marquee</h4><p>35s linear — slow, ambient branding</p></div></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-arrow-down"></i></div><div><h4>Page Entrance</h4><p>500ms cubic-bezier — smooth content reveal</p></div></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></div><div><h4>Scale on Hover</h4><p>200ms — button tactile feedback</p></div></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-arrows-rotate"></i></div><div><h4>Color Inversion</h4><p>300ms — card hover transformation</p></div></div>
+        </div>
+        <p style="font-size:0.85rem; color:var(--text-secondary); margin-top:1.5rem;">All animations respect <code style="color:var(--text);">prefers-reduced-motion</code> — marquees pause, entrance animations skip.</p>
+    </section>
+
+    <!-- ACCESSIBILITY -->
+    <section class="ats-section" id="accessibility">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">08</span>
+            <h2><i class="fa-solid fa-universal-access"></i> Accessibility</h2>
+        </div>
+        <div class="feat-grid">
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-eye"></i></div><div><h4>Contrast</h4><p>Off-white on rich black = ~15:1 ratio (WCAG AAA)</p></div></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-circle-dot"></i></div><div><h4>Focus Indicators</h4><p>Acid yellow 2px outline on all interactive elements</p></div></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-keyboard"></i></div><div><h4>Keyboard Navigation</h4><p>All buttons, links, and calendar days are focusable</p></div></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-hand-pointer"></i></div><div><h4>Touch Targets</h4><p>Minimum 44px for all interactive elements</p></div></div>
+            <div class="feat-card" style="grid-column: span 2;"><div class="feat-icon"><i class="fa-solid fa-assistive-listening-systems"></i></div><div><h4>Screen Reader</h4><p>ARIA labels on calendar days, form fields, and icon buttons</p></div></div>
+        </div>
+    </section>
+
+    <!-- DESIGN EVOLUTION -->
+    <section class="ats-section" id="evolution">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">09</span>
+            <h2><i class="fa-solid fa-code-branch"></i> Design Evolution</h2>
+        </div>
+        <div class="tl-wrapper">
+            <div class="tl-line"><div class="tl-fill" id="timelineProgress"></div></div>
+            <div class="tl-items">
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card">
+                        <span class="tl-date">v1</span>
+                        <h4>Functional Foundation</h4>
+                        <p>Standard CRUD interface with basic styling. Worked, but visually invisible.</p>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card">
+                        <span class="tl-date">v2</span>
+                        <h4>Dark Mode Toggle</h4>
+                        <p>Added dark/light mode switching with cyan accent. More modern, but still generic.</p>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card">
+                        <span class="tl-date">v3</span>
+                        <h4>Dark-Only with Cyan</h4>
+                        <p>Removed the toggle, committed to dark mode. Cleaner, but the design still blended in with every other finance app.</p>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot done"></div>
+                    <div class="tl-card">
+                        <span class="tl-date">v4 — Final</span>
+                        <h4>Kinetic Typography</h4>
+                        <p>Complete visual overhaul. Acid yellow instead of cyan. Sharp corners instead of rounded. Massive type instead of standard sizes. Marquees instead of static cards. Connected grids instead of individual cards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p style="font-size:0.85rem; color:var(--text-secondary); margin-top:2rem;">Each iteration was a deliberate rejection of what came before — pushing toward a more distinctive, memorable identity.</p>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="ats-section" id="results">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">10</span>
+            <h2><i class="fa-solid fa-chart-line"></i> Results</h2>
+        </div>
+        <div class="feat-grid">
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-check"></i></div><div><h4>Full CRUD</h4><p>Expenses, salary entries, categories — all functional</p></div></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-mobile-screen"></i></div><div><h4>Responsive</h4><p>Works from 320px mobile to 1440px+ desktop</p></div></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-gauge-high"></i></div><div><h4>Performant</h4><p>Lazy-loaded routes, animated counters, skeleton loaders</p></div></div>
+            <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-universal-access"></i></div><div><h4>Accessible</h4><p>WCAG AA contrast, keyboard navigation, screen reader support</p></div></div>
+            <div class="feat-card" style="grid-column: span 2;"><div class="feat-icon"><i class="fa-solid fa-fire"></i></div><div><h4>Memorable</h4><p>Instantly recognizable design that stands apart from generic dashboards</p></div></div>
+        </div>
+    </section>
+
+    <!-- REFLECTIONS -->
+    <section class="ats-section" id="reflections">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">11</span>
+            <h2><i class="fa-solid fa-brain"></i> Reflections</h2>
+        </div>
+        <div class="overview-split">
+            <div class="overview-left">
+                <div class="overview-icon-lg" style="background:rgba(74,222,128,0.1); border-color:rgba(74,222,128,0.2); color:#4ade80;"><i class="fa-solid fa-check"></i></div>
+                <h3>What Worked</h3>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:1rem; margin-top:1rem;">
+                    <li style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7; padding-left:1rem; position:relative;"><span style="position:absolute; left:0; color:#4ade80;">→</span> Kinetic Typography creates instant identity — the design is unmistakably this project</li>
+                    <li style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7; padding-left:1rem; position:relative;"><span style="position:absolute; left:0; color:#4ade80;">→</span> Single accent color forces disciplined use — every yellow element feels intentional</li>
+                    <li style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7; padding-left:1rem; position:relative;"><span style="position:absolute; left:0; color:#4ade80;">→</span> Connected grids (gap-px) solve the "card soup" problem — the layout feels architectural</li>
+                </ul>
+            </div>
+            <div class="overview-left">
+                <div class="overview-icon-lg" style="background:rgba(251,191,36,0.1); border-color:rgba(251,191,36,0.2); color:#fbbf24;"><i class="fa-solid fa-wrench"></i></div>
+                <h3>What I'd Improve</h3>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:1rem; margin-top:1rem;">
+                    <li style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7; padding-left:1rem; position:relative;"><span style="position:absolute; left:0; color:#fbbf24;">→</span> Add real-time charts (Chart.js or D3) for spending trends</li>
+                    <li style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7; padding-left:1rem; position:relative;"><span style="position:absolute; left:0; color:#fbbf24;">→</span> Implement push notifications for budget limit warnings</li>
+                    <li style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7; padding-left:1rem; position:relative;"><span style="position:absolute; left:0; color:#fbbf24;">→</span> Add export to CSV/PDF for tax reporting</li>
+                    <li style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7; padding-left:1rem; position:relative;"><span style="position:absolute; left:0; color:#fbbf24;">→</span> Build a PWA for mobile home screen install</li>
+                    <li style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7; padding-left:1rem; position:relative;"><span style="position:absolute; left:0; color:#fbbf24;">→</span> Support multi-currency for international users</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="obj-list" style="margin-top:1px;">
+            <div class="obj-item">
+                <div class="obj-num" style="color:var(--text-muted);">TAKEAWAY</div>
+                <div class="obj-content">
+                    <h4>Key Takeaway</h4>
+                    <p>The most important design decision wasn't a color or a font — it was <strong style="color:var(--text);">choosing to be bold</strong>. Generic designs are forgettable. A strong design system, applied consistently, creates something people remember and want to use.</p>
+                </div>
+                <div class="obj-icon"><i class="fa-solid fa-quote-left"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LINKS -->
+    <section class="ats-section" id="links">
+        <div class="section-divider"></div>
+        <div class="section-header">
+            <span class="section-number">12</span>
+            <h2><i class="fa-solid fa-link"></i> Links</h2>
+        </div>
+        <div class="deploy-flow">
+            <a href="https://github.com/liamflores-09/personal_budget_tracker" target="_blank" class="deploy-step" style="text-decoration:none; color:var(--text);">
+                <div class="deploy-step-icon"><i class="fa-brands fa-github"></i></div>
+                <div class="deploy-step-info"><h4>GitHub</h4><p>liamflores-09/personal_budget_tracker</p></div>
+            </a>
+            <div class="deploy-step">
+                <div class="deploy-step-icon"><i class="fa-solid fa-code"></i></div>
+                <div class="deploy-step-info"><h4>Tech Stack</h4><p>Laravel · Vue 3 · Inertia.js · Tailwind CSS</p></div>
+            </div>
+            <div class="deploy-step">
+                <div class="deploy-step-icon"><i class="fa-solid fa-palette"></i></div>
+                <div class="deploy-step-info"><h4>Design System</h4><p>Kinetic Typography</p></div>
+            </div>
+        </div>
+        <p style="font-size:0.85rem; color:var(--text-muted); text-align:center; margin-top:2rem; font-style:italic;">Built with intention. Designed to be remembered.</p>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">© 2026 Liam Flores — Personal Budget Tracker Case Study</div>
+        <div class="footer-links">
+            <a href="https://github.com/liamflores-09" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="../index.html"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <script src="../js/ats.js"></script>
+</body>
+</html>
