@@ -405,7 +405,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Form submission — Netlify Forms
+    // Form submission — Web3Forms
     const form = document.querySelector('.contact-form');
     const formSuccess = document.getElementById('formSuccess');
     form.addEventListener('submit', function(e) {
@@ -416,10 +416,9 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.disabled = true;
 
         const formData = new FormData(this);
-        fetch('/', {
+        fetch('https://api.web3forms.com/submit', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(formData).toString()
+            body: formData
         }).then(() => {
             btn.innerHTML = '<i class="fa-solid fa-check"></i> Sent!';
             btn.style.background = '#333';
@@ -693,10 +692,9 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.disabled = true;
 
             const formData = new FormData(this);
-            fetch('/', {
+            fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString()
+                body: formData
             }).then(() => {
                 feedbackSuccess.classList.add('active');
                 feedbackForm.reset();

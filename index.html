@@ -575,11 +575,11 @@
                 <a href="https://github.com/liamflores-09" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
                 <a href="https://linkedin.com/in/liamjedmflores" target="_blank"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
             </div>
-            <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+            <form class="contact-form" name="contact" method="POST" action="https://api.web3forms.com/submit" id="contactForm">
+                <input type="hidden" name="access_key" value="01b7820c-d853-4dc5-aae1-3401a186a8d4">
                 <input type="hidden" name="form-name" value="contact">
-                <p class="hidden" style="display:none">
-                    <label>Don't fill this out: <input name="bot-field"></label>
-                </p>
+                <input type="hidden" name="subject" value="New Contact from Portfolio">
+                <input type="checkbox" name="bot-field" style="display:none">
                 <div class="form-group">
                     <input type="text" name="name" placeholder="Your Name" required>
                 </div>
@@ -697,11 +697,11 @@
                 <h4><i class="fa-solid fa-comment-dots"></i> Feedback</h4>
                 <button class="feedback-close" id="feedbackClose"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <form class="feedback-form" name="feedback" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+            <form class="feedback-form" name="feedback" method="POST" action="https://api.web3forms.com/submit" id="feedbackForm">
+                <input type="hidden" name="access_key" value="01b7820c-d853-4dc5-aae1-3401a186a8d4">
                 <input type="hidden" name="form-name" value="feedback">
-                <p style="display:none">
-                    <label>Don't fill this out: <input name="bot-field"></label>
-                </p>
+                <input type="hidden" name="subject" value="New Feedback from Portfolio">
+                <input type="checkbox" name="bot-field" style="display:none">
                 <div class="feedback-row">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Name (optional)">
