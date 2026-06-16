@@ -372,6 +372,14 @@
     opacity: 1; transform: translateY(0);
 }
 
+/* ─── TOKEN GRID ─── */
+.token-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+}
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
     .screenshot-grid { grid-template-columns: repeat(2, 1fr); }
@@ -388,21 +396,64 @@
     .hl-stats { gap: 2rem; }
 }
 @media (max-width: 768px) {
-    .ats-hero { padding: 6rem 6% 3rem; }
-    .ats-brand { font-size: 1rem; letter-spacing: 4px; }
-    .ats-title { font-size: 2.5rem; }
-    .ats-cta { flex-direction: column; align-items: flex-start; }
+    .ats-hero { padding: 5rem 5% 2rem; }
+    .ats-brand { font-size: 0.85rem; letter-spacing: 3px; }
+    .ats-title { font-size: 2rem; }
+    .ats-subtitle { font-size: 0.9rem; }
+    .ats-notice { padding: 1rem; font-size: 0.8rem; }
+    .ats-notice p { font-size: 0.8rem; }
+    .ats-cta { flex-direction: column; align-items: stretch; gap: 0.5rem; }
+    .ats-cta .cta-button,
+    .ats-cta .resume-btn,
+    .ats-cta .ats-outline-btn { width: 100%; justify-content: center; text-align: center; }
     .screenshot-grid { grid-template-columns: 1fr; }
     .obj-item { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
     .obj-num { min-width: auto; }
     .obj-icon { display: none; }
     .tl-stats { flex-direction: column; gap: 1.5rem; }
     .hl-stats { flex-direction: column; gap: 1.5rem; }
-    .team-col { padding: 1.5rem; }
+    .team-col { padding: 1.25rem; }
     .carousel-btn { opacity: 1; width: 28px; height: 28px; font-size: 0.6rem; }
+    .ats-section { padding: 4rem 5%; }
+    .section-header { gap: 1rem; margin-bottom: 2rem; }
+    .section-header h2 { font-size: 1.5rem; }
+    .ats-back-link { top: 1rem; left: 1rem; padding: 0.4rem 0.8rem; font-size: 0.6rem; }
+    .feat-card { flex-direction: column; gap: 0.75rem; }
+    .feat-icon { width: 36px; height: 36px; }
+    .overview-left { padding: 2rem; }
+    .overview-meta-row { padding: 1rem 2rem; }
+    .tech-category { padding: 0; }
+    .tech-cat-label { padding: 0 1rem; }
+    .tech-row { padding: 0.5rem; }
+    .tech-pill { padding: 0.6rem 0.8rem; font-size: 0.75rem; }
+    .deploy-step { padding: 1.5rem; }
+    .tl-card { padding: 1.25rem; }
+    .overview-icon-lg { width: 48px; height: 48px; font-size: 1.2rem; }
 }
 @media (max-width: 480px) {
-    .ats-title { font-size: 2rem; }
-    .tech-pill { padding: 0.6rem 1rem; font-size: 0.8rem; }
-    .carousel-btn { width: 26px; height: 26px; font-size: 0.55rem; }
+    .ats-hero { padding: 4.5rem 4% 1.5rem; }
+    .ats-title { font-size: 1.6rem; }
+    .ats-brand { font-size: 0.75rem; letter-spacing: 2px; }
+    .ats-section { padding: 3rem 4%; }
+    .section-header h2 { font-size: 1.25rem; }
+    .section-number { font-size: 0.65rem; }
+    .obj-content h4 { font-size: 0.85rem; }
+    .obj-content p { font-size: 0.8rem; }
+    .feat-card h4 { font-size: 0.85rem; }
+    .feat-card p { font-size: 0.8rem; }
+    .overview-left h3 { font-size: 1.1rem; }
+    .overview-left p { font-size: 0.85rem; }
+    .overview-meta-row span { font-size: 0.55rem; }
+    .overview-meta-row strong { font-size: 0.8rem; }
+    .tl-card h4 { font-size: 0.9rem; }
+    .tl-card p { font-size: 0.8rem; }
+    .tl-date { font-size: 0.65rem; }
+    .deploy-step h4 { font-size: 0.75rem; }
+    .deploy-step p { font-size: 0.7rem; }
+    .tech-pill { padding: 0.5rem 0.6rem; font-size: 0.7rem; }
+    .back-to-top { width: 36px; height: 36px; font-size: 0.8rem; }
+    .token-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 360px) {
+    .token-grid { grid-template-columns: 1fr; }
 }
