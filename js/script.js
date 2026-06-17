@@ -12,7 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 i++;
                 setTimeout(typeChar, 80);
             } else {
-                setTimeout(() => pageLoader.classList.add('hidden'), 800);
+                setTimeout(() => {
+                    pageLoader.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }, 800);
             }
         }
         setTimeout(typeChar, 400);
