@@ -1,4 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Page Loader
+    const pageLoader = document.getElementById('pageLoader');
+    const loaderTyped = document.getElementById('loaderTyped');
+    if (pageLoader && loaderTyped) {
+        document.body.style.overflow = 'hidden';
+        const name = 'liam flores';
+        let i = 0;
+        function typeChar() {
+            if (i < name.length) {
+                loaderTyped.textContent += name[i];
+                i++;
+                setTimeout(typeChar, 80);
+            } else {
+                setTimeout(() => pageLoader.classList.add('hidden'), 800);
+            }
+        }
+        setTimeout(typeChar, 400);
+    }
+
     // Page transition — blur dissolve (Index → ATS only)
     const pageTransition = document.getElementById('pageTransition');
     if (pageTransition) {
