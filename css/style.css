@@ -4362,10 +4362,28 @@ section.visible .contact-content {
     padding: 0.5rem 1.25rem; border-radius: 8px;
     border: none; background: var(--text); color: var(--bg-start);
     font-size: 0.8rem; font-weight: 600; cursor: pointer;
-    text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+    display: flex; align-items: center; gap: 0.4rem;
     transition: all 0.2s;
 }
 .ext-confirm-go:hover { opacity: 0.85; }
+
+/* Project Highlight */
+.project-highlight {
+    animation: projectGlow 2s ease;
+}
+@keyframes projectGlow {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    30% { box-shadow: 0 0 20px 4px rgba(255, 255, 255, 0.3); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+[data-theme="light"] .project-highlight {
+    animation: projectGlowLight 2s ease;
+}
+@keyframes projectGlowLight {
+    0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2); }
+    30% { box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.15); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+}
 
 /* Command Palette Trigger */
 .cmd-palette-trigger {

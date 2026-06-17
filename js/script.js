@@ -884,7 +884,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const cmdBody = document.getElementById('cmdBody');
     const cmdNavResults = document.getElementById('cmdNavResults');
     const cmdProjectResults = document.getElementById('cmdProjectResults');
-    const cmdSkillResults = document.getElementById('cmdSkillResults');
     const cmdLinkResults = document.getElementById('cmdLinkResults');
 
     const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
@@ -905,28 +904,10 @@ document.addEventListener('DOMContentLoaded', function() {
             { icon: 'fa-solid fa-paper-plane', title: 'Contact', desc: 'Get in touch', href: '#contact' },
         ],
         projects: [
-            { icon: 'fa-solid fa-globe', title: 'Portfolio Website', desc: 'Laravel + Bootstrap', href: '#projects' },
+            { icon: 'fa-solid fa-globe', title: 'Portfolio Website', desc: 'Laravel + Bootstrap', href: '#projects', highlight: 0 },
             { icon: 'fa-solid fa-clipboard-list', title: 'Applicant Tracking System', desc: 'Capstone project', href: 'pages/ats-project.html' },
             { icon: 'fa-solid fa-gamepad', title: "Yeyeniya's Pilot Service", desc: 'Magic Chess service', href: 'https://yeyeniya.vercel.app/', external: true },
-            { icon: 'fa-solid fa-wallet', title: 'Personal Budget Tracker', desc: 'Laravel + Vue 3 + Inertia', href: '#projects' },
-        ],
-        skills: [
-            { icon: 'fa-brands fa-html5', title: 'HTML', desc: 'Frontend', badge: '80%' },
-            { icon: 'fa-brands fa-css3-alt', title: 'CSS', desc: 'Frontend', badge: '75%' },
-            { icon: 'fa-brands fa-js', title: 'JavaScript', desc: 'Frontend', badge: '65%' },
-            { icon: 'fa-brands fa-vuejs', title: 'Vue 3', desc: 'Frontend', badge: '55%' },
-            { icon: 'fa-solid fa-bolt', title: 'Inertia.js', desc: 'Frontend', badge: '55%' },
-            { icon: 'fa-solid fa-wind', title: 'Tailwind CSS', desc: 'Frontend', badge: '60%' },
-            { icon: 'fa-brands fa-bootstrap', title: 'Bootstrap', desc: 'Frontend', badge: '75%' },
-            { icon: 'fa-brands fa-php', title: 'PHP', desc: 'Backend', badge: '70%' },
-            { icon: 'fa-solid fa-fire', title: 'Laravel', desc: 'Backend', badge: '65%' },
-            { icon: 'fa-solid fa-database', title: 'MySQL', desc: 'Backend', badge: '70%' },
-            { icon: 'fa-solid fa-database', title: 'PostgreSQL', desc: 'Backend', badge: '55%' },
-            { icon: 'fa-brands fa-node-js', title: 'Node.js', desc: 'Backend', badge: '50%' },
-            { icon: 'fa-solid fa-fire', title: 'Firebase', desc: 'Backend', badge: '50%' },
-            { icon: 'fa-brands fa-git-alt', title: 'Git', desc: 'Tools', badge: '60%' },
-            { icon: 'fa-brands fa-github', title: 'GitHub', desc: 'Tools', badge: '60%' },
-            { icon: 'fa-solid fa-code', title: 'VS Code', desc: 'Tools', badge: '75%' },
+            { icon: 'fa-solid fa-wallet', title: 'Personal Budget Tracker', desc: 'Laravel + Vue 3 + Inertia', href: '#projects', highlight: 3 },
         ],
         links: [
             { icon: 'fa-solid fa-envelope', title: 'Email', desc: 'liamjedmflores@gmail.com', href: 'mailto:liamjedmflores@gmail.com' },
@@ -966,6 +947,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 showExtConfirm(item.href, item.title);
             } else {
                 window.location.hash = item.href;
+                if (item.highlight !== undefined) {
+                    setTimeout(() => {
+                        const cards = document.querySelectorAll('.project-thumb-card');
+                        if (cards[item.highlight]) {
+                            cards[item.highlight].classList.add('project-highlight');
+                            cards[item.highlight].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            setTimeout(() => cards[item.highlight].classList.remove('project-highlight'), 2000);
+                        }
+                    }, 100);
+                }
             }
         }
     }
@@ -978,8 +969,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function showExtConfirm(url, title) {
         extConfirmUrl.textContent = url;
-        extConfirmGo.href = url;
-        extConfirmGo.target = '_blank';
+        extConfirmGo.onclick = () => { window.open(url, '_blank'); extConfirm.classList.remove('active'); };
         extConfirm.classList.add('active');
     }
 
