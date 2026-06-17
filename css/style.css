@@ -4303,6 +4303,70 @@ section.visible .contact-content {
     .share-widget { bottom: 5rem; right: 1.5rem; }
 }
 
+/* External Link Confirmation */
+.ext-confirm-overlay {
+    position: fixed; inset: 0; z-index: 99999;
+    background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+.ext-confirm-overlay.active { opacity: 1; pointer-events: auto; }
+
+.ext-confirm-box {
+    background: var(--bg-end); border: 1px solid var(--border);
+    border-radius: 16px; padding: 2rem; text-align: center;
+    width: 90%; max-width: 380px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95); transition: transform 0.2s ease;
+}
+.ext-confirm-overlay.active .ext-confirm-box { transform: scale(1); }
+
+.ext-confirm-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--bg-start); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem; font-size: 1rem; color: var(--text-secondary);
+}
+
+.ext-confirm-box h4 {
+    font-size: 1rem; font-weight: 700; color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.ext-confirm-url {
+    font-size: 0.7rem; color: var(--text-muted);
+    word-break: break-all; margin-bottom: 0.5rem;
+    padding: 0.4rem 0.6rem; background: var(--bg-start);
+    border-radius: 6px; border: 1px solid var(--border);
+}
+
+.ext-confirm-text {
+    font-size: 0.8rem; color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+}
+
+.ext-confirm-actions {
+    display: flex; gap: 0.75rem; justify-content: center;
+}
+
+.ext-confirm-cancel {
+    padding: 0.5rem 1.25rem; border-radius: 8px;
+    border: 1px solid var(--border); background: var(--bg-start);
+    color: var(--text-secondary); font-size: 0.8rem; font-weight: 500;
+    cursor: pointer; transition: all 0.2s;
+}
+.ext-confirm-cancel:hover { border-color: var(--text); color: var(--text); }
+
+.ext-confirm-go {
+    padding: 0.5rem 1.25rem; border-radius: 8px;
+    border: none; background: var(--text); color: var(--bg-start);
+    font-size: 0.8rem; font-weight: 600; cursor: pointer;
+    text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+    transition: all 0.2s;
+}
+.ext-confirm-go:hover { opacity: 0.85; }
+
 /* Command Palette Trigger */
 .cmd-palette-trigger {
     display: flex; align-items: center; gap: 0.4rem;

@@ -963,12 +963,48 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('resumeModal').classList.add('active');
         } else if (item.href) {
             if (item.external) {
-                window.open(item.href, '_blank');
+                showExtConfirm(item.href, item.title);
             } else {
                 window.location.hash = item.href;
             }
         }
     }
+
+    // External link confirmation
+    const extConfirm = document.getElementById('extConfirm');
+    const extConfirmUrl = document.getElementById('extConfirmUrl');
+    const extConfirmGo = document.getElementById('extConfirmGo');
+    const extConfirmCancel = document.getElementById('extConfirmCancel');
+
+    function showExtConfirm(url, title) {
+        extConfirmUrl.textContent = url;
+        extConfirmGo.href = url;
+        extConfirmGo.target = '_blank';
+        extConfirm.classList.add('active');
+    }
+
+    extConfirmCancel.addEventListener('click', () => {
+        extConfirm.classList.remove('active');
+    });
+
+    extConfirm.addEventListener('click', (e) => {
+        if (e.target === extConfirm) extConfirm.classList.remove('active');
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && extConfirm.classList.contains('active')) {
+            extConfirm.classList.remove('active');
+        }
+    });
+
+    // Global external link confirmation
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href^="http"]');
+        if (!link || link.target !== '_blank') return;
+        if (link.classList.contains('ext-confirm-go')) return;
+        e.preventDefault();
+        showExtConfirm(link.href, link.textContent.trim());
+    });
 
     function cmdFilter(query) {
         const q = query.toLowerCase().trim();
