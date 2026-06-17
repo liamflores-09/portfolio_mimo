@@ -877,4 +877,190 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'ArrowLeft') prevImage();
         if (e.key === 'ArrowRight') nextImage();
     });
+
+    // Command Palette
+    const cmdPalette = document.getElementById('cmdPalette');
+    const cmdInput = document.getElementById('cmdInput');
+    const cmdBody = document.getElementById('cmdBody');
+    const cmdNavResults = document.getElementById('cmdNavResults');
+    const cmdProjectResults = document.getElementById('cmdProjectResults');
+    const cmdSkillResults = document.getElementById('cmdSkillResults');
+    const cmdLinkResults = document.getElementById('cmdLinkResults');
+
+    const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+    const cmdKeyLabel = isMac ? '⌘K' : 'Ctrl+K';
+    document.getElementById('cmdShortcut').textContent = cmdKeyLabel;
+    document.querySelector('.cmd-palette-footer').innerHTML = `<span><kbd>↑</kbd><kbd>↓</kbd> Navigate</span><span><kbd>↵</kbd> Select</span><span><kbd>ESC</kbd> Close</span>`;
+
+    const cmdData = {
+        nav: [
+            { icon: 'fa-solid fa-house', title: 'Home', desc: 'Hero section', href: '#hero' },
+            { icon: 'fa-solid fa-briefcase', title: 'Experience', desc: 'Work history', href: '#experience' },
+            { icon: 'fa-solid fa-quote-left', title: 'Testimonials', desc: 'What people say', href: '#testimonials' },
+            { icon: 'fa-solid fa-laptop-code', title: 'Tech Stack', desc: 'Skills & technologies', href: '#techstack' },
+            { icon: 'fa-solid fa-graduation-cap', title: 'Education', desc: 'Academic background', href: '#education' },
+            { icon: 'fa-solid fa-diagram-project', title: 'Projects', desc: 'Featured work', href: '#projects' },
+            { icon: 'fa-solid fa-palette', title: 'Creative Work', desc: 'Digital art & graphics', href: '#creative' },
+            { icon: 'fa-solid fa-star', title: 'Hobbies', desc: 'Personal interests', href: '#hobbies' },
+            { icon: 'fa-solid fa-paper-plane', title: 'Contact', desc: 'Get in touch', href: '#contact' },
+        ],
+        projects: [
+            { icon: 'fa-solid fa-globe', title: 'Portfolio Website', desc: 'Laravel + Bootstrap', href: '#projects' },
+            { icon: 'fa-solid fa-clipboard-list', title: 'Applicant Tracking System', desc: 'Capstone project', href: 'pages/ats-project.html' },
+            { icon: 'fa-solid fa-gamepad', title: "Yeyeniya's Pilot Service", desc: 'Magic Chess service', href: 'https://yeyeniya.vercel.app/', external: true },
+            { icon: 'fa-solid fa-wallet', title: 'Personal Budget Tracker', desc: 'Laravel + Vue 3 + Inertia', href: '#projects' },
+        ],
+        skills: [
+            { icon: 'fa-brands fa-html5', title: 'HTML', desc: 'Frontend', badge: '80%' },
+            { icon: 'fa-brands fa-css3-alt', title: 'CSS', desc: 'Frontend', badge: '75%' },
+            { icon: 'fa-brands fa-js', title: 'JavaScript', desc: 'Frontend', badge: '65%' },
+            { icon: 'fa-brands fa-vuejs', title: 'Vue 3', desc: 'Frontend', badge: '55%' },
+            { icon: 'fa-solid fa-bolt', title: 'Inertia.js', desc: 'Frontend', badge: '55%' },
+            { icon: 'fa-solid fa-wind', title: 'Tailwind CSS', desc: 'Frontend', badge: '60%' },
+            { icon: 'fa-brands fa-bootstrap', title: 'Bootstrap', desc: 'Frontend', badge: '75%' },
+            { icon: 'fa-brands fa-php', title: 'PHP', desc: 'Backend', badge: '70%' },
+            { icon: 'fa-solid fa-fire', title: 'Laravel', desc: 'Backend', badge: '65%' },
+            { icon: 'fa-solid fa-database', title: 'MySQL', desc: 'Backend', badge: '70%' },
+            { icon: 'fa-solid fa-database', title: 'PostgreSQL', desc: 'Backend', badge: '55%' },
+            { icon: 'fa-brands fa-node-js', title: 'Node.js', desc: 'Backend', badge: '50%' },
+            { icon: 'fa-solid fa-fire', title: 'Firebase', desc: 'Backend', badge: '50%' },
+            { icon: 'fa-brands fa-git-alt', title: 'Git', desc: 'Tools', badge: '60%' },
+            { icon: 'fa-brands fa-github', title: 'GitHub', desc: 'Tools', badge: '60%' },
+            { icon: 'fa-solid fa-code', title: 'VS Code', desc: 'Tools', badge: '75%' },
+        ],
+        links: [
+            { icon: 'fa-solid fa-envelope', title: 'Email', desc: 'liamjedmflores@gmail.com', href: 'mailto:liamjedmflores@gmail.com' },
+            { icon: 'fa-brands fa-github', title: 'GitHub', desc: 'github.com/liamflores-09', href: 'https://github.com/liamflores-09', external: true },
+            { icon: 'fa-brands fa-linkedin-in', title: 'LinkedIn', desc: 'linkedin.com/in/liamjedmflores', href: 'https://linkedin.com/in/liamjedmflores', external: true },
+            { icon: 'fa-solid fa-file-pdf', title: 'View Resume', desc: 'Open PDF resume', href: '#resume', action: 'resume' },
+        ],
+    };
+
+    let cmdActiveIndex = -1;
+    let cmdFlatItems = [];
+
+    function cmdRenderItem(item, idx) {
+        const div = document.createElement('div');
+        div.className = 'cmd-item';
+        div.dataset.index = idx;
+        div.innerHTML = `
+            <div class="cmd-item-icon"><i class="${item.icon}"></i></div>
+            <div class="cmd-item-text">
+                <div class="cmd-item-title">${item.title}</div>
+                <div class="cmd-item-desc">${item.desc}</div>
+            </div>
+            ${item.badge ? `<span class="cmd-item-badge">${item.badge}</span>` : ''}
+            ${item.external ? '<span class="cmd-item-badge">↗</span>' : ''}
+        `;
+        div.addEventListener('click', () => cmdSelect(item));
+        return div;
+    }
+
+    function cmdSelect(item) {
+        cmdPalette.classList.remove('active');
+        document.body.style.overflow = '';
+        if (item.action === 'resume') {
+            document.getElementById('resumeModal').classList.add('active');
+        } else if (item.href) {
+            if (item.external) {
+                window.open(item.href, '_blank');
+            } else {
+                window.location.hash = item.href;
+            }
+        }
+    }
+
+    function cmdFilter(query) {
+        const q = query.toLowerCase().trim();
+        const groups = { nav: cmdNavResults, projects: cmdProjectResults, skills: cmdSkillResults, links: cmdLinkResults };
+        cmdFlatItems = [];
+        cmdActiveIndex = -1;
+
+        Object.values(groups).forEach(g => { g.innerHTML = ''; });
+
+        let hasAny = false;
+        Object.entries(cmdData).forEach(([key, items]) => {
+            const group = groups[key];
+            const parent = group.parentElement;
+            let groupHas = false;
+            items.forEach((item, i) => {
+                const match = !q || item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q);
+                if (match) {
+                    const flatIdx = cmdFlatItems.length;
+                    cmdFlatItems.push(item);
+                    const el = cmdRenderItem(item, flatIdx);
+                    group.appendChild(el);
+                    groupHas = true;
+                    hasAny = true;
+                }
+            });
+            parent.classList.toggle('has-results', groupHas);
+        });
+
+        if (!hasAny) {
+            cmdBody.innerHTML = '<div class="cmd-empty">No results found</div>';
+        } else {
+            if (!cmdBody.querySelector('.cmd-group')) {
+                cmdBody.innerHTML = '';
+                Object.values(groups).forEach(g => cmdBody.appendChild(g.parentElement));
+            }
+        }
+    }
+
+    function cmdUpdateActive() {
+        document.querySelectorAll('.cmd-item').forEach((el, i) => {
+            el.classList.toggle('active', i === cmdActiveIndex);
+        });
+        const active = document.querySelector('.cmd-item.active');
+        if (active) active.scrollIntoView({ block: 'nearest' });
+    }
+
+    function cmdOpen() {
+        cmdPalette.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        cmdInput.value = '';
+        cmdFilter('');
+        setTimeout(() => cmdInput.focus(), 50);
+    }
+
+    function cmdClose() {
+        cmdPalette.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+            e.preventDefault();
+            if (cmdPalette.classList.contains('active')) {
+                cmdClose();
+            } else {
+                cmdOpen();
+            }
+        }
+    });
+
+    cmdInput.addEventListener('input', () => cmdFilter(cmdInput.value));
+
+    cmdInput.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            cmdActiveIndex = Math.min(cmdActiveIndex + 1, cmdFlatItems.length - 1);
+            cmdUpdateActive();
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            cmdActiveIndex = Math.max(cmdActiveIndex - 1, 0);
+            cmdUpdateActive();
+        } else if (e.key === 'Enter' && cmdActiveIndex >= 0) {
+            e.preventDefault();
+            cmdSelect(cmdFlatItems[cmdActiveIndex]);
+        } else if (e.key === 'Escape') {
+            cmdClose();
+        }
+    });
+
+    cmdPalette.addEventListener('click', (e) => {
+        if (e.target === cmdPalette) cmdClose();
+    });
+
+    document.getElementById('cmdTrigger').addEventListener('click', cmdOpen);
 });

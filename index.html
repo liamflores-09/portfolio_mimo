@@ -46,6 +46,11 @@
             <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
         </ul>
         <div class="nav-right">
+            <button class="cmd-palette-trigger" id="cmdTrigger" title="Search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span class="cmd-trigger-label">Search</span>
+                <kbd id="cmdShortcut">Ctrl+K</kbd>
+            </button>
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                 <div class="toggle-track">
                     <div class="toggle-stars">
@@ -833,6 +838,40 @@
                     <p>Your input helps me improve.</p>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- Command Palette -->
+    <div class="cmd-palette-overlay" id="cmdPalette">
+        <div class="cmd-palette">
+            <div class="cmd-palette-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="cmdInput" placeholder="Search sections, projects, skills..." autocomplete="off" spellcheck="false">
+                <kbd>ESC</kbd>
+            </div>
+            <div class="cmd-palette-body" id="cmdBody">
+                <div class="cmd-group">
+                    <span class="cmd-group-label">Navigation</span>
+                    <div class="cmd-results" id="cmdNavResults"></div>
+                </div>
+                <div class="cmd-group">
+                    <span class="cmd-group-label">Projects</span>
+                    <div class="cmd-results" id="cmdProjectResults"></div>
+                </div>
+                <div class="cmd-group">
+                    <span class="cmd-group-label">Skills</span>
+                    <div class="cmd-results" id="cmdSkillResults"></div>
+                </div>
+                <div class="cmd-group">
+                    <span class="cmd-group-label">Links</span>
+                    <div class="cmd-results" id="cmdLinkResults"></div>
+                </div>
+            </div>
+            <div class="cmd-palette-footer">
+                <span><kbd>↑</kbd><kbd>↓</kbd> Navigate</span>
+                <span><kbd>↵</kbd> Select</span>
+                <span><kbd>ESC</kbd> Close</span>
+            </div>
         </div>
     </div>
 
