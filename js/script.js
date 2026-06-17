@@ -998,7 +998,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function cmdFilter(query) {
         const q = query.toLowerCase().trim();
-        const groups = { nav: cmdNavResults, projects: cmdProjectResults, skills: cmdSkillResults, links: cmdLinkResults };
+        const groups = { nav: cmdNavResults, projects: cmdProjectResults, links: cmdLinkResults };
         cmdFlatItems = [];
         cmdActiveIndex = -1;
 
