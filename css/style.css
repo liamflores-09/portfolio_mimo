@@ -2070,13 +2070,71 @@ section.visible .education-content {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
 }
 
 .project-thumb-card {
     border-radius: 4px;
     overflow: hidden;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.project-thumb-card.hidden {
+    display: none;
+}
+
+/* Projects Pagination */
+.projects-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.proj-prev, .proj-next {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg-end);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.proj-prev:hover:not(:disabled), .proj-next:hover:not(:disabled) {
+    border-color: var(--text);
+    color: var(--text);
+}
+
+.proj-prev:disabled, .proj-next:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.proj-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.proj-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.proj-dot.active {
+    background: #3b82f6;
+    transform: scale(1.2);
 }
 
 .project-thumb-img {

@@ -1089,4 +1089,31 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('cmdTrigger').addEventListener('click', cmdOpen);
+
+    // Projects Pagination
+    const projCards = document.querySelectorAll('.project-thumb-card');
+    const projPrev = document.getElementById('projPrev');
+    const projNext = document.getElementById('projNext');
+    const projDots = document.querySelectorAll('.proj-dot');
+    const perPage = 2;
+    let projPage = 0;
+    const totalPages = Math.ceil(projCards.length / perPage);
+
+    function showProjPage(page) {
+        projPage = page;
+        projCards.forEach((card, i) => {
+            card.classList.toggle('hidden', i < page * perPage || i >= (page + 1) * perPage);
+        });
+        projPrev.disabled = projPage === 0;
+        projNext.disabled = projPage >= totalPages - 1;
+        projDots.forEach((dot, i) => dot.classList.toggle('active', i === projPage));
+    }
+
+    projPrev.addEventListener('click', () => { if (projPage > 0) showProjPage(projPage - 1); });
+    projNext.addEventListener('click', () => { if (projPage < totalPages - 1) showProjPage(projPage + 1); });
+    projDots.forEach(dot => {
+        dot.addEventListener('click', () => showProjPage(parseInt(dot.dataset.page)));
+    });
+
+    showProjPage(0);
 });
